@@ -9,6 +9,8 @@ import java.util.Set;
 
 public class PayImp implements PayRepo {
 
+    public static PayImp repository = null;
+    private Set<Pay> pay;
     @Override
     public Set<Pay> getAll() {
         return null;
@@ -16,17 +18,19 @@ public class PayImp implements PayRepo {
 
     @Override
     public Pay create(Pay pay) {
-        return null;
+        this.pay.add(pay);
+        return pay;
     }
 
     @Override
     public Pay update(Pay pay) {
-        return null;
+        this.pay.add(pay);
+        return pay;
     }
 
     @Override
     public void delete(String s) {
-
+      this.pay.remove(pay);
     }
 
     @Override

@@ -5,6 +5,6 @@ import Assignment6.domain.User;
 
 import java.util.Set;
 
-public interface CertificateRepo extends RepoA {
+public interface CertificateRepo extends RepoA<Certificate, String> {
     Set<Certificate> getAll();
 }
