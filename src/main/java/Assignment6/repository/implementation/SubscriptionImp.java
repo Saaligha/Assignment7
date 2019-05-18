@@ -9,25 +9,30 @@ import Assignment6.repository.SubscriptionRepo;
 import java.util.Set;
 
 public class SubscriptionImp implements SubscriptionRepo {
-
+    private static SubscriptionImp repository = null;
+    private Set<Subscription> sub;
     @Override
     public Set<Subscription> getAll() {
         return null;
     }
-
+    public static SubscriptionRepo getRepository(){
+        if(repository == null) repository = new SubscriptionImp();
+        return repository;
+    }
     @Override
     public Subscription create(Subscription subscription) {
-        return null;
+        this.sub.add(subscription);
+        return subscription;
     }
 
     @Override
-    public Subscription update(Subscription subscription) {
-        return null;
+    public Subscription update(Subscription subscription){this.sub.add(subscription);
+        return subscription;
     }
 
     @Override
     public void delete(String s) {
-
+    this.sub.remove(s);
     }
 
     @Override

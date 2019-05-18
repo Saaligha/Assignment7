@@ -9,7 +9,7 @@ import Assignment6.repository.RepoA;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class ProgressImp implements ProgressRepo {
+public class ProgressImp implements ProgressRepo {
 
     private static ProgressImp Progress =  null;
     private Set<Progress> progress;

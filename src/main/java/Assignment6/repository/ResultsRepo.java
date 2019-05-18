@@ -5,7 +5,7 @@ import Assignment6.domain.Results;
 
 import java.util.Set;
 
-public interface ResultsRepo extends RepoA<Course, String> {
+public interface ResultsRepo extends RepoA<Results, String> {
     Set<Results> getAll();
 }
 

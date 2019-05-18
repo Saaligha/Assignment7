@@ -25,21 +25,36 @@ public class QuizImp implements QuizRepo {
 
     @Override
     public Quiz create(Quiz quiz) {
-        return null;
+        this.quiz.add(quiz);
+        return quiz;
     }
 
     @Override
     public Quiz update(Quiz quiz) {
-        return null;
+        this.quiz.add(quiz);
+        return quiz;
     }
 
     @Override
     public void delete(String s) {
-
+        for(Quiz l: quiz)
+        {
+            if(l.getQuizId().equals(s))
+            {
+                this.quiz.remove(l);
+            }
+        }
     }
 
     @Override
     public Quiz read(String s) {
-        return null;
+        Quiz l = null;
+        for(Quiz lang : quiz){
+            if(lang.getQuizId().equals(s)){
+                System.out.println((lang.getQuizId()));
+            }
+        }
+        return l;
     }
-}
+    }
+
