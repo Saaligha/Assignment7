@@ -1,7 +1,5 @@
 package Assignment6.domain;
 
-import javafx.util.Builder;
-
 public class Location {
     private String region;
 
@@ -17,7 +15,7 @@ public class Location {
     public static class Builder{
         private String region;
 
-        public Builder region(){
+        public Builder region(String sa){
             this.region = region;
             return this;
         }

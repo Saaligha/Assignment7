@@ -18,7 +18,7 @@ public class CourseImp implements CourseRepo {
         this.courses = new HashSet<>();
     }
 
-    public static CourseRepo getRepository(){
+    public static CourseImp getRepository(){
         if(repository == null) repository = new CourseImp();
         return repository;
     }

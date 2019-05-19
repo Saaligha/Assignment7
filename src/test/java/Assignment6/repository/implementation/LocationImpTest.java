@@ -18,60 +18,41 @@ import static org.junit.Assert.*;
 
 public class LocationImpTest {
 
- private LocationRepo repository;
- private Location loc;
+    private LocationImp repo;
+    private Set<Location> loc;
 
-    private Location savedLocation() {
-        Set<Location> savedLocation = this.repository.getAll();
-        return savedLocation.iterator().next();
-    }
-
-
+    Location l1,l2;
 
     @Before
     public void setUp() throws Exception {
-        this.repository = LocationImp.getRepo();
-        this.loc = LocationFactory.UserRegion("Asia");
+        this.repo = LocationImp.getRepo();
     }
+@Test
+    public void create(){
+        l1 = new Location.Builder().region("SA").build();
+        l2 = new Location.Builder().region("JHB").build();
 
-    @Test
-    public void a_create() {
-        Location created = this.repository.create(this.loc);
-        System.out.println("In create, created = " + created);
-        getAll();
-        Assert.assertSame(created, this.loc);
-    }
+        Location l = this.repo.create(l1);
 
-    @Test
-    public void b_read() {
-        Location savedLocation = savedLocation();
-        System.out.println("In read, region = "+ savedLocation.getRegion());
-        Location read = this.repository.read(savedLocation.getRegion());
-        System.out.println("In read, read = " + read);
-        getAll();
-        Assert.assertEquals(savedLocation, read);
-    }
+        Location ll = this.repo.create(l2);
 
-    @Test
-    public void e_delete() {
-        Location savedLocation = savedLocation();
-        this.repository.delete(savedLocation().getRegion());
-        getAll();
-    }
-    @Test
-    public void c_update() {
-        String region = "New Region";
-        Location loc = new Location.Builder().copy(savedLocation()).region().build();
-        System.out.println("In update, about_to_updated = " + loc);
-        Location updated = this.repository.update(loc);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(region, updated.getRegion());
-        getAll();
-    }
-    @Test
-    public void d_getAll() {
-        Set<Location> all = this.repository.getAll();
-        System.out.println("In getAll, all = " + all);
-//        Assert.assertSame(1, all.size());
-    }
+        Assert.assertNotEquals(l1, l);
+}
+
+@Test
+    public void update(){
+        l1 = new Location.Builder().region("SA").build();
+        Location l = this.repo.update(l1);
+
+        Assert.assertEquals(l1, l);
+
+}
+
+@Test
+    public void delete(){
+        String s = "SA";
+        this.repo.delete(s);
+       // int size = loc.size();
+        //Assert.assertNotEquals(0,size);
+}
 }

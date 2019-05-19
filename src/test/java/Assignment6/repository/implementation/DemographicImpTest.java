@@ -31,40 +31,25 @@ public class DemographicImpTest {
         this.demoRep = DemographicImp.getRepo();
     }
 
-    @Test
-    public void create(){
-        Demographic created = this.demoRep.create(this.getDemo());
-        System.out.println("In create, created = " + created);
-        getAll();
-        assertSame(created, this.demoRep);
-
-
-    }
-    @Test
-    public void read() {
-        Demographic read = getDemo();
-        System.out.println("In read,  = "+ read.getGender());
-        Demographic r = this.demoRep.read(read.getGender());
-        System.out.println("In read, read = " + r);
-        getAll();
-        Assert.assertEquals(read, read);
-    }
 
     @Test
     public void delete(){
-        Demographic d = getDemo();
-        this.demoRep.delete(d.getGender());
-        getAll();
+      String s = "4";
+      this.demoRep.delete(s);
+      demo = this.demoRep.getAll();
+      int size = demo.size();
+      Assert.assertNotEquals(1, size);
     }
     @Test
     public void update(){
-
-
+    d1 = new Demographic.Builder().setRace("Asian").build();
+    Demographic d = this.demoRep.update(d1);
+    Assert.assertNotEquals(d1, d);
     }
 
     @Test
     public void getAll(){
-        Set<Demographic> all = this.demoRep.getAll();
-        Assert.assertSame(2, all.size());
+        demo = this.demoRep.getAll();
+        Assert.assertEquals(0, demo.size());
     }
 }

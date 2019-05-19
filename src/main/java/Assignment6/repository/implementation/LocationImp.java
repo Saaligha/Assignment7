@@ -17,7 +17,7 @@ public class LocationImp implements LocationRepo {
         this.loc = new HashSet<>();
     }
 
-    public static LocationRepo getRepo(){
+    public static LocationImp getRepo(){
         if(repository == null) repository = new LocationImp();
         return repository;
     }

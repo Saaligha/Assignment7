@@ -12,63 +12,58 @@ import java.util.Set;
 import static org.junit.Assert.*;
 
 public class CourseImpTest {
-    private CourseRepo repository;
-    private Course course;
+  private CourseRepo repository;
+  private Set<Course> course;
 
+  Course c1;
+  Course c2;
+
+
+    @Before
+    public void setUp() throws Exception {
+        this.repository = CourseImp.getRepository();
+    }
+
+    @Test
+    public void create() {
+       c1 = new Course.Builder().courseId("olkij").courseName("ADP").build();
+       c2 = new Course.Builder().courseId("dcfghy").courseName("ADP").build();
+       Course c = this.repository.create(c1);
+       Assert.assertNotEquals(c1, c);
+       Course cc = this.repository.create(c2);
+       Assert.assertNotEquals(c2, cc);
+    }
 
     private Course getSavedCourse() {
         Set<Course> savedCourses = this.repository.getAll();
         return savedCourses.iterator().next();
     }
 
-    @Before
-    public void setUp() throws Exception {
-        this.repository = CourseImp.getRepository();
-        this.course = CourseFactory.getCourse("Test Course");
+
+    @Test
+    public void update(){
+     c1 = new Course.Builder().courseId("ADT45").courseName("ADT").build();
+     Course c = this.repository.update(c1);
+     Assert.assertEquals(c1,c);
+        System.out.println(c.getCourseId());
+
     }
 
     @Test
-    public void a_create() {
-        Course created = this.repository.create(this.course);
-        System.out.println("In create, created = " + created);
-        d_getAll();
-        Assert.assertSame(created, this.course);
-    }
+    public void delete(){
+        String s = "ADT45";
 
+        this.repository.delete(s);
+        course = this.repository.getAll();
+        int size = course.size();
+        Assert.assertEquals(0,size);
+
+        System.out.println(course.size());
+    }
     @Test
-    public void b_read() {
-        Course savedCourse = getSavedCourse();
-        System.out.println("In read, courseId = "+ savedCourse.getCourseId());
-        Course read = this.repository.read(savedCourse.getCourseId());
-        System.out.println("In read, read = " + read);
-        d_getAll();
-        Assert.assertEquals(savedCourse, read);
+    public void getAll(){
+        course = this.repository.getAll();
+        Assert.assertEquals(0, course.size());
+        System.out.println(course.size());
     }
-
-    @Test
-    public void e_delete() {
-        Course savedCourse = getSavedCourse();
-        this.repository.delete(savedCourse.getCourseId());
-        d_getAll();
-    }
-
-    @Test
-    public void c_update() {
-        String newname = "New Test Course Name";
-        Course course = new Course.Builder().copy(getSavedCourse()).courseName(newname).build();
-        System.out.println("In update, about_to_updated = " + course);
-        Course updated = this.repository.update(course);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getCourseName());
-        d_getAll();
-    }
-
-     @Test
-    public void d_getAll() {
-        Set<Course> all = this.repository.getAll();
-        System.out.println("In getAll, all = " + all);
-//        Assert.assertSame(1, all.size());
-    }
-
-
 }

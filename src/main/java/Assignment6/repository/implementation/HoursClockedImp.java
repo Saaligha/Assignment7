@@ -18,6 +18,10 @@ public class HoursClockedImp implements HoursClockedRepo {
         return null;
     }
 
+    public static HoursClockedRepo getRepository(){
+        if(repository == null) repository = new HoursClockedImp();
+        return repository;
+    }
     @Override
     public HoursClocked create(HoursClocked hoursClocked) {
      this.hoursClocked.add((hoursClocked));
@@ -33,7 +37,8 @@ public class HoursClockedImp implements HoursClockedRepo {
 
     @Override
     public void delete(String s) {
-    this.hoursClocked.remove(hoursClocked);
+
+        this.hoursClocked.remove(s);
     }
 
     @Override

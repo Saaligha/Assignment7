@@ -28,10 +28,7 @@ public class UserImpTest {
 
     @Test
     public void a_create() {
-        Object created = this.repository.create(this.user);
-        System.out.println("In create, created = " + created);
-        d_getAll();
-        Assert.assertSame(created, this.user);
+
     }
 
     @Test
