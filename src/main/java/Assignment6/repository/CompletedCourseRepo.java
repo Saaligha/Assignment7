@@ -1,6 +1,5 @@
 package Assignment6.repository;
 
-import Assignment6.domain.CompletedCourses;
 import Assignment6.domain.Course;
 
 import java.util.Set;

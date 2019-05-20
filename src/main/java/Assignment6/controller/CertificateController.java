@@ -1,9 +1,7 @@
 package Assignment6.controller;
 
-import Assignment6.domain.Course;
-import Assignment6.factory.CourseFactory;
-import Assignment6.repository.implementation.CourseImp;
-import Assignment6.services.CourseService;
+import Assignment6.domain.Certificate;
+import Assignment6.services.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
@@ -12,24 +10,22 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("")
-public class CourseController {
-
+public class CertificateController {
     @Autowired
-    @Qualifier("")
-    private CourseService service;
+    @Qualifier
+    private CertificateService service;
+
+@PostMapping("")
+    @ResponseBody
+    public Certificate create(Certificate certificate){
+    return service.create(certificate);
+}
 
     @PostMapping("")
     @ResponseBody
-    public Course create(Course course){
-        return service.create(course);
+    public Certificate update(Certificate certificate){
+        return service.update(certificate);
     }
-
-    @PostMapping("/update")
-    @ResponseBody
-    public Course update(Course course){
-        return service.update(course);
-    }
-
     @GetMapping("/delete{id}")
     @ResponseBody
     public void delete(@PathVariable String id){
@@ -37,12 +33,15 @@ public class CourseController {
 
     @GetMapping("/read/{id}")
     @ResponseBody
-    public Course read(@PathVariable String id){
+    public Certificate read(@PathVariable String id){
         return service.read(id);
     }
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Course> getAll(){
-    return service.getAll();
-}}
+    public Set<Certificate> getAll(){
+        return service.getAll();
+    }
+
+}
+

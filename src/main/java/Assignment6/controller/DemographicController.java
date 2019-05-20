@@ -1,9 +1,8 @@
 package Assignment6.controller;
 
-import Assignment6.domain.Course;
-import Assignment6.factory.CourseFactory;
-import Assignment6.repository.implementation.CourseImp;
+import Assignment6.domain.Demographic;
 import Assignment6.services.CourseService;
+import Assignment6.services.DemographicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
@@ -12,23 +11,24 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("")
-public class CourseController {
+public class DemographicController {
+
 
     @Autowired
     @Qualifier("")
-    private CourseService service;
+    private DemographicService service;
 
     @PostMapping("")
     @ResponseBody
-    public Course create(Course course){
-        return service.create(course);
+    public Demographic create(Demographic demo){
+        return service.create(demo);
     }
-
     @PostMapping("/update")
     @ResponseBody
-    public Course update(Course course){
-        return service.update(course);
+    public Demographic update(Demographic demo){
+        return service.update(demo);
     }
+
 
     @GetMapping("/delete{id}")
     @ResponseBody
@@ -37,12 +37,12 @@ public class CourseController {
 
     @GetMapping("/read/{id}")
     @ResponseBody
-    public Course read(@PathVariable String id){
+    public Demographic read(@PathVariable String id){
         return service.read(id);
     }
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Course> getAll(){
-    return service.getAll();
-}}
+    public Set<Demographic> getAll(){
+        return service.getAll();
+    }}
