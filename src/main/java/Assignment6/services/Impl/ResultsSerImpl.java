@@ -1,40 +1,40 @@
 package Assignment6.services.Impl;
 
 import Assignment6.domain.Course;
+import Assignment6.domain.Results;
 import Assignment6.repository.CourseRepo;
-import Assignment6.services.CourseService;
+import Assignment6.repository.ResultsRepo;
+import Assignment6.services.ResultsServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+
 import java.util.Set;
 
-@Service("CourseImpl")
-public class CourseSerImp implements CourseService {
+@Service("ResultsImpl")
+public class ResultsSerImpl implements ResultsServices {
+    @Autowired
+    @Qualifier
+    private ResultsRepo repository;
 
-   //@Autowired
-   // @Qualifier("Memory");
-    private CourseRepo repository;
 
-    public CourseSerImp(CourseRepo repository) {
+    public ResultsSerImpl(ResultsRepo repository) {
         this.repository = repository;
     }
 
 
     @Override
-    public Set<Course> getAll() {
+    public Set<Results> getAll() {
         return null;
     }
 
     @Override
-    public Course create(Course type) {
+    public Results create(Results type) {
         return repository.create(type);
     }
 
     @Override
-    public Course update(Course type) {
+    public Results update(Results type) {
         return this.repository.update(type);
     }
 
@@ -44,7 +44,7 @@ public class CourseSerImp implements CourseService {
     }
 
     @Override
-    public Course read(String s) {
+    public Results read(String s) {
         return repository.read(s);
     }
 }

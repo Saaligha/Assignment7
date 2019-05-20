@@ -32,7 +32,7 @@ public class SubscriptionImp implements SubscriptionRepo {
 
     @Override
     public void delete(String s) {
-    this.sub.remove(s);
+        this.sub.remove(s);
     }
 
     @Override

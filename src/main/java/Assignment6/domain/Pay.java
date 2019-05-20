@@ -1,24 +1,33 @@
 package Assignment6.domain;
 
-public class Pay extends Transaction {
+import javafx.util.Builder;
 
-	private double  amount;
-	
+public class Pay {
 
-    public Pay() {
+    private int amt;
+
+    private Pay(){}
+
+    private Pay(Builder builder){
+        this.amt = builder.amt;
     }
-    
-    public void execute(){
-    double dep;
-    
-    dep =	amount + getAccBalance();
-    	
-    	//updating acc
-    	setAccountBalance(dep); 
-    	
-    	System.out.println("Pay: " );
+
+    public int getAmt(){
+        return amt;
     }
-    
-    
-    
+    public static class Builder{
+
+
+        private int amt;
+
+        public Builder amt(int amt){
+            this.amt = amt;
+            return this;
+        }
+
+        public Pay build(){
+            return new Pay(this);
+        }
+
+    }
 }
