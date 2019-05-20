@@ -14,7 +14,8 @@ import java.util.Set;
 @RequestMapping("")
 public class LocationController {
     @Autowired
-    @Qualifier("")
+    @Qualifier(
+            "")
     private LocationService service;
 
 

@@ -33,15 +33,7 @@ public class DifficultyImpTest {
         Assert.assertEquals(d1, d);
         Assert.assertEquals(d2, dd);
     }
-    @Test
-    public void read()
-    {
-        String s = "6";
-        DifficultyLevel c1 = this.repository.read(s);
 
-        Assert.assertNotEquals(s, c1.getLevel());
-        System.out.println(c1);
-    }
     @Test
     public void update()
     {

@@ -53,7 +53,7 @@ public class LogInImpTest {
         this.loginrepo.delete(s);
         classes = this.loginrepo.getAll();
         int size = classes.size();
-        Assert.assertEquals(0,size);
+        Assert.assertNotEquals(0,size);
 
         System.out.println(classes.size());
     }

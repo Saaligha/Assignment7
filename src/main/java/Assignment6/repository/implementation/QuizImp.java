@@ -13,7 +13,7 @@ public class QuizImp implements QuizRepo {
     public static QuizImp repository = null;
     private Set<Quiz> quiz;
 
-    public QuizRepo getRepository(){
+    public QuizImp getRepository(){
         if(repository==null)
             repository = new QuizImp();
         return repository;

@@ -19,7 +19,7 @@ public class UserImp implements UserRepo {
         this.users = new HashSet<>();
     }
 
-    public static RepoA getRepository() {
+    public static UserImp getRepository() {
         if (repository == null) repository = new UserImp();
         return repository;
     }
