@@ -36,29 +36,27 @@ public class LogInImpTest {
 
     @Test
     public void update() {
+
+
+        l1 = new LogIn.Builder().UserId("SL").Password("123").build();
+        LogIn l = this.loginrepo.update(l1);
+        Assert.assertEquals(l1,l);
+        System.out.println(l.getUserId());
+
     }
 
     @Test
     public void delete() {
+
+        String s = "ADT45";
+
+        this.loginrepo.delete(s);
+        classes = this.loginrepo.getAll();
+        int size = classes.size();
+        Assert.assertEquals(0,size);
+
+        System.out.println(classes.size());
     }
 
-    @Test
-    public void read() {
-    }
 
-    @Test
-    public void create1() {
-    }
-
-    @Test
-    public void update1() {
-    }
-
-    @Test
-    public void delete1() {
-    }
-
-    @Test
-    public void read1() {
-    }
 }
