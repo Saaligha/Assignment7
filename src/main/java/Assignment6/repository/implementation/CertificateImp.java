@@ -4,48 +4,51 @@ import Assignment6.domain.Certificate;
 import Assignment6.repository.CertificateRepo;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 @Repository("CertificateRepo")
 public class CertificateImp implements CertificateRepo {
 
     private static CertificateImp repository = null;
-    private Set<Certificate> certificate;
+    private Map<String,Certificate> certificate;
 
     private CertificateImp(){
-        this.certificate = new HashSet<>();
+        this.certificate = new HashMap<>();
 
     }
 
-    public static CertificateRepo getRepository(){
+    public static CertificateImp getRepository(){
         if(repository == null) repository = new CertificateImp();
         return repository;
     }
     @Override
     public Set<Certificate> getAll() {
-        return null;
+        Collection<Certificate> courses = this.certificate.values();
+        Set<Certificate> set = new HashSet<>();
+        set.addAll(courses);
+        return set;
     }
 
     @Override
     public Certificate create(Certificate certificate) {
-        this.certificate.add(certificate);
+        this.certificate.put(certificate.getCertificate(), certificate);
         return certificate;
     }
 
     @Override
     public Certificate update(Certificate certificate) {
-        this.certificate.add(certificate);
+        this.certificate.replace(certificate.getCertificate(), certificate);
         return certificate;
     }
 
     @Override
     public void delete(String s) {
-
+    this.certificate.remove(s);
     }
 
     @Override
     public Certificate read(String s) {
-        return null;
+        return this.certificate.get(s);
     }
 
 

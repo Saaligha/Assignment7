@@ -6,16 +6,16 @@ import Assignment6.repository.LocationRepo;
 import Assignment6.repository.RepoA;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 @Repository("LocationRepo")
 public class LocationImp implements LocationRepo {
 
     private static LocationImp repository = null;
-    private Set<Location> loc;
+    private Map<String, Location> loc;
 
     private LocationImp(){
-        this.loc = new HashSet<>();
+        this.loc = new HashMap<>();
     }
 
     public static LocationImp getRepo(){
@@ -25,17 +25,22 @@ public class LocationImp implements LocationRepo {
 
     @Override
     public Set<Location> getAll() {
-        return null;
+        Collection<Location> courses = this.loc.values();
+        Set<Location> set = new HashSet<>();
+        set.addAll(courses);
+        return set;
+
     }
 
     @Override
     public Location create(Location location) {
-        return null;
+        this.loc.put(location.getRegion(), location);
+        return location;
     }
 
     @Override
     public Location update(Location location) {
-       this.loc.add(location);
+       this.loc.replace(location.getRegion(), location);
        return location;
     }
 
@@ -45,7 +50,9 @@ public class LocationImp implements LocationRepo {
     }
 
     @Override
-    public Location read(String s) {
-        return null;
+    public Location read(final String s) {
+
+        return this.loc.get(s);
     }
+
 }

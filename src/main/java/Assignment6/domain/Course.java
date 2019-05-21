@@ -20,6 +20,11 @@ public class Course {
         return courseName;
     }
 
+    public Course courseName(String courseName) {
+         this.courseName = courseName;
+         return this;
+    }
+
     public static class Builder{
 
         private String courseId, courseName;
@@ -33,15 +38,17 @@ public class Course {
             this.courseName = courseName;
             return this;
         }
+        public Builder copy(Course course){
+            this.courseId = course.courseId;
+            this.courseName = course.courseName;
 
+            return this;
+        }
         public Course build() {
             return new Course(this);
         }
 
-        public Builder copy(Course savedCourse) {
-            this.courseName = courseName;
-            return this;
-        }
+
     }
 
     @Override

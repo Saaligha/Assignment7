@@ -6,9 +6,7 @@ import Assignment6.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+
 import java.util.Set;
 
 @Service("CourseSerImpl")
@@ -24,7 +22,9 @@ private CourseRepo repository;
 
     @Override
     public Set<Course> getAll() {
-        return null;
+        Set<Course> courses = this.repository.getAll();
+        System.out.println("getAll:" +courses);
+        return courses;
     }
 
     @Override

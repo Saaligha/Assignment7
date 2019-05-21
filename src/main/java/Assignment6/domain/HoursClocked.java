@@ -1,7 +1,5 @@
 package Assignment6.domain;
 
-import javafx.util.Builder;
-
 public class HoursClocked {
     private int hours;
 

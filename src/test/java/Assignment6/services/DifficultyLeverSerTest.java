@@ -1,17 +1,17 @@
-package Assignment6.repository.implementation;
+package Assignment6.services;
 
 import Assignment6.domain.DifficultyLevel;
 import Assignment6.factory.DifficultyLevelFactory;
-import Assignment6.repository.DifficultyRepo;
+import Assignment6.repository.implementation.DifficultyImp;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+import org.xmlunit.diff.Diff;
 
-import java.util.Set;
-
-import static org.junit.Assert.*;
-
-public class DifficultyImpTest {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class DifficultyLeverSerTest {
     private DifficultyImp repository;
     private DifficultyLevel level;
 
@@ -65,9 +65,8 @@ public class DifficultyImpTest {
         this.repository.create(created);
         DifficultyLevel s = this.repository.read(String.valueOf(created.getLevel()));
 
-        // Assert.assertEquals(created, s);
+       // Assert.assertEquals(created, s);
         Assert.assertNull(s);
-
         System.out.println("Read: " +s);
     }
 }

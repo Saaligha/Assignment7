@@ -1,5 +1,6 @@
 package Assignment6.repository.implementation;
 
+import Assignment6.domain.Course;
 import Assignment6.domain.Demographic;
 import Assignment6.domain.Location;
 import Assignment6.domain.Quiz;
@@ -7,55 +8,55 @@ import Assignment6.repository.QuizRepo;
 import Assignment6.repository.RepoA;
 import org.springframework.stereotype.Repository;
 
-import java.util.Set;
+import java.util.*;
+
 @Repository("QuizRepo")
 public class QuizImp implements QuizRepo {
 
     public static QuizImp repository = null;
-    private Set<Quiz> quiz;
+    private Map<String ,Quiz> quiz;
 
-    public QuizImp getRepository(){
+    private QuizImp(){this.quiz = new HashMap<>();
+    }
+
+
+    public static QuizImp getRepository(){
         if(repository==null)
             repository = new QuizImp();
         return repository;
     }
+
+
+
+
     @Override
     public Set<Quiz> getAll() {
-        return null;
+        Collection<Quiz> quiz = this.quiz.values();
+        Set<Quiz> set = new HashSet<>();
+        set.addAll(quiz);
+        return set;
     }
 
     @Override
     public Quiz create(Quiz quiz) {
-        this.quiz.add(quiz);
+        this.quiz.put(quiz.getQuizId(), quiz);
         return quiz;
     }
 
     @Override
     public Quiz update(Quiz quiz) {
-        this.quiz.add(quiz);
+        this.quiz.replace(quiz.getQuizId(), quiz);
         return quiz;
     }
 
     @Override
-    public void delete(String s) {
-        for(Quiz l: quiz)
-        {
-            if(l.getQuizId().equals(s))
-            {
-                this.quiz.remove(l);
-            }
-        }
+    public void delete(String quizId) {
+        this.quiz.remove(quizId);
     }
 
     @Override
-    public Quiz read(String s) {
-        Quiz l = null;
-        for(Quiz lang : quiz){
-            if(lang.getQuizId().equals(s)){
-                System.out.println((lang.getQuizId()));
-            }
-        }
-        return l;
+    public Quiz read(String quizId) {
+        return this.quiz.get(quizId);
     }
     }
 

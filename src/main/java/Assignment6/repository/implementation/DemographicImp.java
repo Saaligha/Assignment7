@@ -40,7 +40,7 @@ public class DemographicImp implements DemographicRepo {
     @Override
     public Demographic update(Demographic demographic) {
         this.demo.replace(demographic.getGender(), demographic);
-        return this.demo.get(demographic.getGender());
+        return demographic;
     }
 
     @Override

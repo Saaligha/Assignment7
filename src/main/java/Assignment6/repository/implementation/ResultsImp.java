@@ -7,17 +7,26 @@ import Assignment6.repository.RepoA;
 import Assignment6.repository.ResultsRepo;
 import org.springframework.stereotype.Repository;
 
-import java.util.Set;
+import java.util.*;
+
 @Repository("ResultsRepo")
 public class ResultsImp implements ResultsRepo {
 
     public static ResultsImp repository = null;
-    private Set<Results> results;
+    private Map<Integer, Results> results;
+
+    private ResultsImp(){
+        this.results = new HashMap<>();
+    }
     @Override
     public Set<Results> getAll() {
-        return null;
+        Collection<Results> courses = this.results.values();
+        Set<Results> set = new HashSet<>();
+        set.addAll(courses);
+        return set;
     }
-    public ResultsRepo getRepository(){
+
+    public static ResultsImp getRepository(){
         if(repository==null)
             repository = new ResultsImp();
         return repository;
@@ -25,37 +34,27 @@ public class ResultsImp implements ResultsRepo {
 
     @Override
     public Results create(Results results) {
-        this.results.add(results);
+        this.results.put(results.getFinalResults(), results);
         return results;
     }
 
     @Override
     public Results update(Results results) {
 
-        this.results.add(results);
+        this.results.replace(results.getFinalResults(), results);
         return results;
     }
 
     @Override
     public void delete(String s) {
-
-        for(Results l: results)
-        {
-            if(l.getFinalResults()==50)
-            {
-                this.results.remove(l);
-            }
-        }
+     this.results.remove(s);
     }
 
     @Override
-    public Results read(String s) {
-        Results l = null;
-        for(Results lang : results){
-            if(lang.getFinalResults() == 50){
-                System.out.println((lang.getFinalResults()));
-            }
-        }
-        return l;
+    public Results read(final String s) {
+    return this.results.get(s);
+
     }
+
+
 }

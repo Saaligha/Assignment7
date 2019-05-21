@@ -5,19 +5,20 @@ import Assignment6.domain.Demographic;
 import Assignment6.repository.CourseRepo;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 @Repository("CourseRepo")
 public class CourseImp implements CourseRepo {
 
 
 
     private static CourseImp repository = null;
-    private Set<Course> courses;
+    private Map<String, Course> courses;
 
     private CourseImp() {
-        this.courses = new HashSet<>();
+        this.courses = new HashMap<>();
     }
+
 
     public static CourseImp getRepository(){
         if(repository == null) repository = new CourseImp();
@@ -27,30 +28,36 @@ public class CourseImp implements CourseRepo {
 
     @Override
     public Course create(Course course) {
-        return null;
+       this.courses.put(course.getCourseId(), course);
+       return course;
     }
 
     public Course update(Course course){
-        this.courses.add(course);
+        this.courses.replace(course.getCourseId(), course);
         return course;
     }
+
+    @Override
+    public void delete(String s) {
+        this.courses.remove(s);
+    }
+
     public Course delete(Course course){
         this.courses.remove(course);
         return course;
     }
 
-    public void delete(String courseId) {
-        //find the student and delete it if it exists
 
-    }
 
     @Override
-    public Course read(String s) {
-        return null;
+    public Course read(final String courseId) {
+return this.courses.get(courseId);
     }
 
     public Set<Course> getAll(){
-        return this.courses;
-    }
 
-}
+        Collection<Course> courses = this.courses.values();
+        Set<Course> set = new HashSet<>();
+        set.addAll(courses);
+        return set;
+}}

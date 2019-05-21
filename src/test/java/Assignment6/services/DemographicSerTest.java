@@ -1,21 +1,17 @@
-package Assignment6.repository.implementation;
+package Assignment6.services;
 
-import Assignment6.domain.Course;
 import Assignment6.domain.Demographic;
-import Assignment6.domain.Demographic;
-
 import Assignment6.factory.DemographicFactory;
-import Assignment6.repository.DemographicRepo;
+import Assignment6.repository.implementation.DemographicImp;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
-import java.util.Set;
-
-import static com.sun.deploy.config.JREInfo.getAll;
-import static org.junit.Assert.*;
-
-public class DemographicImpTest {    private DemographicImp repository;
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class DemographicSerTest {
+    private DemographicImp repository;
     private Demographic demo;
 
     @Before
@@ -28,7 +24,7 @@ public class DemographicImpTest {    private DemographicImp repository;
         Demographic created = this.repository.create(this.demo);
         System.out.println("Created: Location" );
         Assert.assertNotNull(created);
-        Assert.assertSame(created, this.demo);
+         Assert.assertSame(created, this.demo);
 
     }
 

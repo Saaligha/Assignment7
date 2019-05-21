@@ -1,19 +1,22 @@
 package Assignment6.repository.implementation;
-
+import java.util.Set;
 import Assignment6.domain.Course;
 import Assignment6.factory.CourseFactory;
 import Assignment6.repository.CourseRepo;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
+import static org.apache.logging.log4j.util.LambdaUtil.getAll;
 import static org.junit.Assert.*;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CourseImpTest {
   private CourseRepo repository;
-  private Set<Course> course;
+  private Course course;
 
   Course c1;
   Course c2;
@@ -22,21 +25,15 @@ public class CourseImpTest {
     @Before
     public void setUp() throws Exception {
         this.repository = CourseImp.getRepository();
+        this.course = CourseFactory.getCourse("ADP 362S");
     }
 
     @Test
     public void create() {
-       c1 = new Course.Builder().courseId("olkij").courseName("ADP").build();
-       c2 = new Course.Builder().courseId("dcfghy").courseName("ADP").build();
-       Course c = this.repository.create(c1);
-       Assert.assertNotEquals(c1, c);
-       Course cc = this.repository.create(c2);
-       Assert.assertNotEquals(c2, cc);
-    }
+       Course created = this.repository.create(this.course);
+        System.out.println("Created: " +created);
 
-    private Course getSavedCourse() {
-        Set<Course> savedCourses = this.repository.getAll();
-        return savedCourses.iterator().next();
+        Assert.assertSame(created, this.course);
     }
 
 
@@ -45,25 +42,34 @@ public class CourseImpTest {
      c1 = new Course.Builder().courseId("ADT45").courseName("ADT").build();
      Course c = this.repository.update(c1);
      Assert.assertEquals(c1,c);
-        System.out.println(c.getCourseId());
+     Assert.assertSame(c1, c);
+     getAll();
+        System.out.println("Updated: "+ c.getCourseId()+ " "+c.getCourseName());
 
     }
-
     @Test
     public void delete(){
-        String s = "ADT45";
+        Course created = this.repository.create(this.course);
+        this.repository.create(created);
 
-        this.repository.delete(s);
-        course = this.repository.getAll();
-        int size = course.size();
-        Assert.assertEquals(0,size);
+        int a = this.repository.getAll().size();
 
-        System.out.println(course.size());
+        Assert.assertSame(created, this.course);
+        Assert.assertEquals(1, a);
+        getAll();
+        System.out.println("Deleted: ");
     }
-    @Test
-    public void getAll(){
-        course = this.repository.getAll();
-        Assert.assertEquals(0, course.size());
-        System.out.println(course.size());
-    }
+@Test
+    public void read(){
+    Course created = this.repository.create(this.course);
+    this.repository.create(created);
+    Course s = this.repository.read(created.getCourseId());
+
+    Assert.assertEquals(created, s);
+    Assert.assertNotNull(s);
+    getAll();
+    System.out.println("Read: " +s);
+
+}
+
 }

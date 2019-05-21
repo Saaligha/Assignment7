@@ -1,29 +1,24 @@
-package Assignment6.repository.implementation;
+package Assignment6.services;
 
-import Assignment6.domain.Course;
 import Assignment6.domain.Location;
-import Assignment6.domain.Location;
-import Assignment6.domain.Location;
-import Assignment6.factory.CourseFactory;
 import Assignment6.factory.LocationFactory;
-import Assignment6.repository.LocationRepo;
+import Assignment6.repository.implementation.LocationImp;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+import org.mockito.internal.debugging.LocationImpl;
 
-import java.util.Set;
-
-import static com.sun.deploy.config.JREInfo.getAll;
-import static org.junit.Assert.*;
-
-public class LocationImpTest {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class LocationSerTest {
     private LocationImp repository;
     private Location loc;
 
     @Before
     public void setUp() throws Exception{
-        this.repository = LocationImp.getRepo();
-        this.loc = LocationFactory.UserRegion("SA");
+       this.repository = LocationImp.getRepo();
+       this.loc = LocationFactory.UserRegion("SA");
 
     }
 
@@ -75,4 +70,5 @@ public class LocationImpTest {
         Assert.assertNotNull(s);
         System.out.println("Read: " +s);
     }
+
 }

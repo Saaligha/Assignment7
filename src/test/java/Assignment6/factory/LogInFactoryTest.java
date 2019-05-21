@@ -17,7 +17,7 @@ public class LogInFactoryTest {
  @Test
     public void buildLogIn(){
 
-     LogIn logIn = LogInFactory.getPassword(this.logIn);
+     LogIn logIn = LogInFactory.getPassword(this.logIn, this.logIn);
      Assert.assertNotNull(logIn.getPassword());
 
      Assert.assertNotNull(logIn);

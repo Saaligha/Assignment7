@@ -1,17 +1,17 @@
-package Assignment6.repository.implementation;
+package Assignment6.services;
 
 import Assignment6.domain.LogIn;
 import Assignment6.factory.LogInFactory;
-import Assignment6.repository.LogInRepo;
+import Assignment6.repository.implementation.LogInImp;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+import sun.rmi.runtime.Log;
 
-import java.util.Set;
-
-import static org.junit.Assert.*;
-
-public class LogInImpTest {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class LogInSerTest {
     private LogInImp repository;
     private LogIn log;
 
@@ -27,7 +27,7 @@ public class LogInImpTest {
         LogIn created = this.repository.create(this.log);
         System.out.println("Created: Log In " +created );
         Assert.assertNotNull(created);
-        Assert.assertSame(created, this.log);
+         Assert.assertSame(created, this.log);
 
     }
 
@@ -71,5 +71,4 @@ public class LogInImpTest {
         Assert.assertNotNull(s);
         System.out.println("Read: " +s);
     }
-
 }
