@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/Language")
 public class LanguageController {
     @Autowired
-    @Qualifier("")
+    @Qualifier("LanguageSerImpl")
     private LanguageService service;
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public Language create(Language language){
         return service.create(language);

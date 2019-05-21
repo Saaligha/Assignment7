@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/Certificate")
 public class CertificateController {
     @Autowired
-    @Qualifier
+    @Qualifier("CertificateSerImp")
     private CertificateService service;
 
-@PostMapping("")
+@PostMapping("/create")
     @ResponseBody
     public Certificate create(Certificate certificate){
     return service.create(certificate);
 }
 
-    @PostMapping("")
+    @PostMapping("/update")
     @ResponseBody
     public Certificate update(Certificate certificate){
         return service.update(certificate);

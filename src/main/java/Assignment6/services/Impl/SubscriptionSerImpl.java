@@ -13,7 +13,7 @@ import java.util.Set;
 public class SubscriptionSerImpl implements SubscriptionService {
 
     @Autowired
-    @Qualifier
+    @Qualifier("SubscriptionRepo")
     private SubscriptionRepo repository;
 
     public SubscriptionSerImpl(SubscriptionRepo repository) {

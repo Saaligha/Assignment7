@@ -4,10 +4,11 @@ import Assignment6.domain.Demographic;
 import Assignment6.domain.Location;
 import Assignment6.repository.LocationRepo;
 import Assignment6.repository.RepoA;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("LocationRepo")
 public class LocationImp implements LocationRepo {
 
     private static LocationImp repository = null;
@@ -40,7 +41,7 @@ public class LocationImp implements LocationRepo {
 
     @Override
     public void delete(String s) {
-
+        this.loc.remove(s);
     }
 
     @Override

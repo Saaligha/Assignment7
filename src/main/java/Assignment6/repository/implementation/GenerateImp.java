@@ -3,7 +3,7 @@ package Assignment6.repository.implementation;
 import Assignment6.domain.Demographic;
 import Assignment6.repository.RepoA;
 
-public class GenerateRepo implements RepoA {
+public class GenerateImp implements RepoA {
 
     @Override
     public Object create(Object o) {

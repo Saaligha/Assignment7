@@ -5,10 +5,11 @@ import Assignment6.domain.Location;
 import Assignment6.domain.User;
 import Assignment6.repository.RepoA;
 import Assignment6.repository.UserRepo;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("UserRepo")
 public class UserImp implements UserRepo {
 
     private static UserImp repository = null;

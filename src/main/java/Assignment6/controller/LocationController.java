@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/Location")
 public class LocationController {
     @Autowired
-    @Qualifier(
-            "")
+    @Qualifier("LocationSerImpl")
     private LocationService service;
 
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public Location create(Location loc){
         return service.create(loc);

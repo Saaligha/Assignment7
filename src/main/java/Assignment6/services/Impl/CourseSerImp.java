@@ -11,12 +11,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import java.util.Set;
 
-@Service("CourseImpl")
+@Service("CourseSerImpl")
 public class CourseSerImp implements CourseService {
-
-   //@Autowired
-   // @Qualifier("Memory");
-    private CourseRepo repository;
+@Autowired
+@Qualifier("CourseRepo")
+private CourseRepo repository;
 
     public CourseSerImp(CourseRepo repository) {
         this.repository = repository;

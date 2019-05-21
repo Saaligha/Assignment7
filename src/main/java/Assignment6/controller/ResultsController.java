@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/Results")
 public class ResultsController {
 
 
     @Autowired
-    @Qualifier("")
+    @Qualifier("ResultsSerImpl")
     private ResultsServices service;
 
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public Results create(Results r){
         return service.create(r);

@@ -9,10 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("CertificateImpl")
+@Service("CertificateSerImpl")
 public class CertificateSerImp implements CertificateService {
 @Autowired
-@Qualifier("Memory")
+
+@Qualifier("CertificateRepo")
 private CertificateRepo repository;
 public CertificateSerImp(CertificateRepo repository){
     this.repository = repository;

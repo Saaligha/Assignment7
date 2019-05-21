@@ -14,7 +14,7 @@ import java.util.Set;
 public class DemographicSerImpl implements DemographicService {
 
 @Autowired
-@Qualifier("Memory")
+@Qualifier("DemographicRepo")
 
 private DemographicRepo repository;
 

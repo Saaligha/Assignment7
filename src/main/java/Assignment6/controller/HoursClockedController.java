@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/HoursClocked")
 public class HoursClockedController {
 
     @Autowired
-    @Qualifier("")
+    @Qualifier("HoursSerImpl")
     private HoursClockedService service;
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public HoursClocked create(HoursClocked hours){
         return service.create(hours);

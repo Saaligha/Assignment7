@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/Demographic")
 public class DemographicController {
 
 
     @Autowired
-    @Qualifier("")
+    @Qualifier("DemographicSerImpl")
     private DemographicService service;
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public Demographic create(Demographic demo){
         return service.create(demo);

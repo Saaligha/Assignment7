@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/Subscription")
 public class SubscriptionController {
 
     @Autowired
-    @Qualifier("")
+    @Qualifier("SubscriptionSerImpl")
     private SubscriptionService service;
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public Subscription create(Subscription s){
         return service.create(s);

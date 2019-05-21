@@ -5,9 +5,10 @@ import Assignment6.domain.Location;
 import Assignment6.domain.Quiz;
 import Assignment6.repository.QuizRepo;
 import Assignment6.repository.RepoA;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
-
+@Repository("QuizRepo")
 public class QuizImp implements QuizRepo {
 
     public static QuizImp repository = null;

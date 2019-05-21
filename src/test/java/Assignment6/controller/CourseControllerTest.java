@@ -1,5 +1,8 @@
 package Assignment6.controller;
 
+import Assignment6.domain.Course;
+import Assignment6.factory.CourseFactory;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +22,28 @@ public class CourseControllerTest {
 
 @Autowired
 private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/course";
-@Test
-    public void getCourse(){
-    HttpHeaders headers = new HttpHeaders();
+    private String baseURL="http://localhost:8080/Course";
+/*@Test
+    public void create(){
 
-    HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-    ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
-            HttpMethod.GET, entity, String.class);
-    assertNotNull(response.getBody());
+    Course course = CourseFactory.getCourse("ADP");
+    ResponseEntity<Course> postResponse = restTemplate.postForEntity(baseURL + "/create", course, Course.class);
+    Assert.assertNotNull(postResponse);
+    Assert.assertNotNull(postResponse.getBody());
 }
 
+*/
 
+@Test
+    public void update(){
+
+    String name = "ADP";
+
+    Course course = restTemplate.getForObject(baseURL + "/Course/" + name, Course.class);
+
+    restTemplate.put(baseURL + "/Course" + name, Course.class);
+    Course updatedCourse = restTemplate.getForObject(baseURL+ "/Course/" + name, Course.class);
+
+    Assert.assertNotNull(updatedCourse);
+}
 }

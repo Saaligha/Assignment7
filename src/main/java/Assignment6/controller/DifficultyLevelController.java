@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/DifficultyLevel")
 public class DifficultyLevelController {
 
 
     @Autowired
-    @Qualifier("")
+    @Qualifier("DiffficultyLevelSerImpl")
     private DifficultyLevelService service;
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public DifficultyLevel create(DifficultyLevel difficulty){
         return service.create(difficulty);

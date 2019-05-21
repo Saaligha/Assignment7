@@ -4,10 +4,11 @@ import Assignment6.domain.Demographic;
 import Assignment6.domain.Language;
 import Assignment6.repository.LanguageRepo;
 import Assignment6.repository.RepoA;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("LanguageRepo")
 public class LanguageImp implements LanguageRepo {
 
     public static LanguageImp repository = null;

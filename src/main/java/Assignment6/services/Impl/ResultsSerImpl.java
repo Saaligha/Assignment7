@@ -14,7 +14,7 @@ import java.util.Set;
 @Service("ResultsImpl")
 public class ResultsSerImpl implements ResultsServices {
     @Autowired
-    @Qualifier
+    @Qualifier("ResultsRepo")
     private ResultsRepo repository;
 
 

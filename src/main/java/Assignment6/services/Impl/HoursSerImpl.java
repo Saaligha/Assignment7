@@ -12,7 +12,7 @@ import java.util.Set;
 @Service("HoursImpl")
 public class HoursSerImpl implements HoursClockedService {
     @Autowired
-    @Qualifier
+    @Qualifier("HoursClockedRepo")
     private HoursClockedRepo repository;
 
 

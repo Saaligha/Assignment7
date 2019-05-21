@@ -13,7 +13,7 @@ import java.util.Set;
 @Service("LogInImpl")
 public class LogInSerImpl implements LogInService {
     @Autowired
-    @Qualifier
+    @Qualifier("LogInRepo")
     private LogInRepo repository;
 
     public LogInSerImpl(LogInRepo repository){

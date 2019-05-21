@@ -13,7 +13,7 @@ import java.util.Set;
 @Service("QuizImpl")
 public class QuizSerImpl {
     @Autowired
-    @Qualifier
+    @Qualifier("QuizRepo")
     private QuizRepo repository;
 
     public QuizSerImpl(QuizRepo repository) {

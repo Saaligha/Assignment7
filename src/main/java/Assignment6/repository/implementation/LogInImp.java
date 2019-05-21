@@ -2,10 +2,11 @@ package Assignment6.repository.implementation;
 
 import Assignment6.domain.LogIn;
 import Assignment6.repository.LogInRepo;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("LogInRepo")
 public class LogInImp implements LogInRepo {
 
 private static LogInImp repository = null;

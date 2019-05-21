@@ -3,10 +3,11 @@ package Assignment6.repository.implementation;
 import Assignment6.domain.Course;
 import Assignment6.domain.Demographic;
 import Assignment6.repository.CourseRepo;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("CourseRepo")
 public class CourseImp implements CourseRepo {
 
 

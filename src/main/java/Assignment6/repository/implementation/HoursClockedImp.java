@@ -2,10 +2,11 @@ package Assignment6.repository.implementation;
 
 import Assignment6.domain.HoursClocked;
 import Assignment6.repository.HoursClockedRepo;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("HoursClockedRepo")
 public class HoursClockedImp implements HoursClockedRepo {
 
     private static HoursClockedImp repository = null;

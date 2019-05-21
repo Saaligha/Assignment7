@@ -2,10 +2,11 @@ package Assignment6.repository.implementation;
 
 import Assignment6.domain.Certificate;
 import Assignment6.repository.CertificateRepo;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("CertificateRepo")
 public class CertificateImp implements CertificateRepo {
 
     private static CertificateImp repository = null;

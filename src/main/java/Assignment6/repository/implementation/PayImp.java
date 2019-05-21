@@ -4,9 +4,10 @@ import Assignment6.domain.Demographic;
 import Assignment6.domain.Pay;
 import Assignment6.repository.PayRepo;
 import Assignment6.repository.RepoA;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
-
+@Repository("PayRepo")
 public class PayImp implements PayRepo {
 
     public static PayImp repository = null;

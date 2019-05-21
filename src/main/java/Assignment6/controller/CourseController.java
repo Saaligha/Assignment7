@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/Course")
 public class CourseController {
 
     @Autowired
-    @Qualifier("")
+    @Qualifier("CourseSerImpl")
     private CourseService service;
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public Course create(Course course){
         return service.create(course);

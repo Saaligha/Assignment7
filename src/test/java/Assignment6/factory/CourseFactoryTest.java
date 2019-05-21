@@ -35,6 +35,8 @@ public class CourseFactoryTest {
         Assert.assertNotNull(c.getCourseName());
         Assert.assertNotNull(c);
         Assert.assertTrue("Spanish", true);
+
+        System.out.println("ok");
     }
 
 }

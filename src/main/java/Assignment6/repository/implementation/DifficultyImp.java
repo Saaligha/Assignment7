@@ -2,10 +2,11 @@ package Assignment6.repository.implementation;
 
 import Assignment6.domain.DifficultyLevel;
 import Assignment6.repository.DifficultyRepo;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("DifficultyRepo")
 public class DifficultyImp implements DifficultyRepo {
     private static DifficultyImp repository = null;
 

@@ -5,9 +5,10 @@ import Assignment6.domain.Quiz;
 import Assignment6.domain.Results;
 import Assignment6.repository.RepoA;
 import Assignment6.repository.ResultsRepo;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
-
+@Repository("ResultsRepo")
 public class ResultsImp implements ResultsRepo {
 
     public static ResultsImp repository = null;

@@ -12,7 +12,7 @@ import java.util.Set;
 @Service("LocationService")
 public class LocationSerImpl implements LocationService {
     @Autowired
-    @Qualifier
+    @Qualifier("LocationRepo")
     private LocationRepo repository;
 
     public LocationSerImpl(LocationRepo repository){

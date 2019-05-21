@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/LogIn")
 public class LogInController {
 
     @Autowired
-    @Qualifier("")
+    @Qualifier("LogInSerImpl")
     private LogInService service;
 
-    @PostMapping("")
+    @PostMapping("/create")
     @ResponseBody
     public LogIn create(LogIn log){
         return service.create(log);
