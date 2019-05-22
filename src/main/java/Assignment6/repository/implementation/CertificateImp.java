@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("CertificateRepo")
+@Repository("CertificateImp")
 public class CertificateImp implements CertificateRepo {
 
     private static CertificateImp repository = null;

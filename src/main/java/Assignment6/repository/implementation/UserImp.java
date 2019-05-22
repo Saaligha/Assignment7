@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-@Repository("UserRepo")
+@Repository("UserImp")
 public class UserImp implements UserRepo {
 
     private static UserImp repository = null;

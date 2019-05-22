@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("CourseRepo")
+@Repository("CourseImp")
 public class CourseImp implements CourseRepo {
 
 

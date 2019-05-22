@@ -5,7 +5,7 @@ import Assignment6.repository.DemographicRepo;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-@Repository("DemographicRepo")
+@Repository("DemographicImp")
 public class DemographicImp implements DemographicRepo {
 
 

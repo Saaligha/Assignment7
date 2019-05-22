@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("SubscriptionRepo")
+@Repository("SubscriptionImp")
 public class SubscriptionImp implements SubscriptionRepo {
     private static SubscriptionImp repository = null;
     private Map<String, Subscription> sub;

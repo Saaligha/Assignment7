@@ -4,12 +4,14 @@ import Assignment6.domain.Certificate;
 import Assignment6.services.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/Certificate")
+@RequestMapping("/Certificate/")
 public class CertificateController {
     @Autowired
     @Qualifier("CertificateSerImp")
@@ -37,9 +39,10 @@ public class CertificateController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
+    @GetMapping("/getAll")
     @ResponseBody
-    public Set<Certificate> getAll(){
+    public Set<Certificate> getAll(@RequestHeader HttpHeaders headers){
+        System.out.println(headers.getFirst("Certificate"));
         return service.getAll();
     }
 

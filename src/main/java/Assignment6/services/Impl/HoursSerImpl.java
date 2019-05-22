@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("HoursImpl")
+@Service("HoursSerImpl")
 public class HoursSerImpl implements HoursClockedService {
     @Autowired
-    @Qualifier("HoursClockedRepo")
+    @Qualifier("HoursClockedImp")
     private HoursClockedRepo repository;
 
 

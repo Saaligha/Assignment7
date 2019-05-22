@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("SubImpl")
+@Service("SubscriptionSerImpl")
 public class SubscriptionSerImpl implements SubscriptionService {
 
     @Autowired
-    @Qualifier("SubscriptionRepo")
+    @Qualifier("SubscriptionImp")
     private SubscriptionRepo repository;
 
     public SubscriptionSerImpl(SubscriptionRepo repository) {

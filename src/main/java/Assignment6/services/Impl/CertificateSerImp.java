@@ -13,7 +13,7 @@ import java.util.Set;
 public class CertificateSerImp implements CertificateService {
 @Autowired
 
-@Qualifier("CertificateRepo")
+@Qualifier("CertificateImp")
 private CertificateRepo repository;
 public CertificateSerImp(CertificateRepo repository){
     this.repository = repository;

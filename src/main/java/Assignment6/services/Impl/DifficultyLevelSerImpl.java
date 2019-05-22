@@ -12,7 +12,7 @@ import java.util.Set;
 @Service("DifficultyLevelSer")
 public class DifficultyLevelSerImpl implements DifficultyLevelService {
 @Autowired
-@Qualifier("DifficultyRepo")
+@Qualifier("DifficultyImp")
 private DifficultyRepo repository;
 
 public DifficultyLevelSerImpl(DifficultyRepo repository){

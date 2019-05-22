@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("LanguageImp")
+@Service("LanguageSerImp")
 public class LanguageSerImpl implements LanguageService {
     @Autowired
-    @Qualifier ("LanguageRepo")
+    @Qualifier ("LanguageImp")
     private LanguageRepo repository;
 
     public LanguageSerImpl(LanguageRepo repository){this.repository = repository;}

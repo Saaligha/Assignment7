@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("ResultsImpl")
+@Service("ResultsSerImpl")
 public class ResultsSerImpl implements ResultsServices {
     @Autowired
-    @Qualifier("ResultsRepo")
+    @Qualifier("ResultsImp")
     private ResultsRepo repository;
 
 

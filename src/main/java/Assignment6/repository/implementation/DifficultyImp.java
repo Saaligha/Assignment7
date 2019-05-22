@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-@Repository("DifficultyRepo")
+@Repository("DifficultyImp")
 public class DifficultyImp implements DifficultyRepo {
     private static DifficultyImp repository = null;
 

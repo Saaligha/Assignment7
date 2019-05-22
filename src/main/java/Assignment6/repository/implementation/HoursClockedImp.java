@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("HoursClockedRepo")
+@Repository("HoursClockedImp")
 public class HoursClockedImp implements HoursClockedRepo {
 
     private static HoursClockedImp repository = null;

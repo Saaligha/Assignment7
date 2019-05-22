@@ -12,7 +12,7 @@ import java.util.Set;
 @Service("CourseSerImpl")
 public class CourseSerImp implements CourseService {
 @Autowired
-@Qualifier("CourseRepo")
+@Qualifier("CourseImp")
 private CourseRepo repository;
 
     public CourseSerImp(CourseRepo repository) {

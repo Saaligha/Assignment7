@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("ResultsRepo")
+@Repository("ResultsImp")
 public class ResultsImp implements ResultsRepo {
 
     public static ResultsImp repository = null;

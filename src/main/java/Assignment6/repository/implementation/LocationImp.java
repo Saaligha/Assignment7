@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("LocationRepo")
+@Repository("LocationImp")
 public class LocationImp implements LocationRepo {
 
     private static LocationImp repository = null;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("QuizRepo")
+@Repository("QuizImp")
 public class QuizImp implements QuizRepo {
 
     public static QuizImp repository = null;

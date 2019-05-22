@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("LanguageRepo")
+@Repository("LanguageImp")
 public class LanguageImp implements LanguageRepo {
 
     public static LanguageImp repository = null;

@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("LogInImpl")
+@Service("LogInSerImpl")
 public class LogInSerImpl implements LogInService {
     @Autowired
-    @Qualifier("LogInRepo")
+    @Qualifier("LogInImp")
     private LogInRepo repository;
 
     public LogInSerImpl(LogInRepo repository){

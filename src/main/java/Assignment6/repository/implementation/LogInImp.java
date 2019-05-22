@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("LogInRepo")
+@Repository("LogInImp")
 public class LogInImp implements LogInRepo {
 
 private static LogInImp repository = null;

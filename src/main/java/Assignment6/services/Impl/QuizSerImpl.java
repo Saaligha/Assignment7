@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("QuizImpl")
+@Service("QuizSerImpl")
 public class QuizSerImpl {
     @Autowired
-    @Qualifier("QuizRepo")
+    @Qualifier("QuizImp")
     private QuizRepo repository;
 
     public QuizSerImpl(QuizRepo repository) {

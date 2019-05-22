@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("LocationService")
+@Service("LocationSerImp")
 public class LocationSerImpl implements LocationService {
     @Autowired
-    @Qualifier("LocationRepo")
+    @Qualifier("LocationImp")
     private LocationRepo repository;
 
     public LocationSerImpl(LocationRepo repository){
