@@ -2,6 +2,7 @@ package Assignment6.services.Progress.Impl;
 
 import Assignment6.domain.Progress.Course;
 import Assignment6.repository.Progress.CourseRepo;
+import Assignment6.repository.Progress.Impl.CourseImp;
 import Assignment6.services.Progress.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +16,7 @@ public class CourseSerImp implements CourseService {
 private CourseRepo repository;
 private CourseSerImp service = null;
     public CourseSerImp() {
-        this.repository = repository;
+        this.repository = CourseImp.getRepository();
     }
     public CourseSerImp getService(){
         if(service==null){

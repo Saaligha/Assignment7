@@ -15,10 +15,15 @@ public class LocationSerImpl implements LocationService {
    private LocationSerImpl service = null;
     private LocationRepo repository;
 
-    public LocationSerImpl(LocationRepo repository){
+    public LocationSerImpl( ){
         this.repository = LocationImp.getRepo();
     }
-
+    public LocationSerImpl getService(){
+        if (service == null){
+            service = new LocationSerImpl();
+        }
+        return service;
+    }
     @Override
     public Set<Location> getAll() {
         return this.repository.getAll();

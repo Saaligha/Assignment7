@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("SubscriptionSerImpl")
+@Service("SubscriptionServiceImpl")
 public class SubscriptionSerImpl implements SubscriptionService {
 
     private SubscriptionSerImpl service = null;

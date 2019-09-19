@@ -14,8 +14,13 @@ public class DemographicServiceImpl implements DemographicService {
 private DemographicServiceImpl service = null;
 private DemographicRepo repository;
 
-public DemographicServiceImpl(DemographicRepo repository){this.repository = DemographicImp.getDemographicRepo(); }
- 
+public DemographicServiceImpl( ){this.repository = DemographicImp.getDemographicRepo(); }
+ public DemographicServiceImpl getService(){
+     if (service == null){
+         service = new DemographicServiceImpl();
+     }
+     return service;
+ }
 
     @Override
     public Set<Demographic> getAll() {

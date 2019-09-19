@@ -25,9 +25,9 @@ public QuizSerImpl getService(){
         }
         return service;
 }
-   // @Override
+    @Override
     public Set<Quiz> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override

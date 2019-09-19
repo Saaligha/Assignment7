@@ -8,7 +8,7 @@ import java.util.*;
 @Repository("DemographicInMemory")
 public class DemographicImp implements DemographicRepo {
 
-    private static DemographicRepo demographicRepo = null;
+    private static DemographicImp demographicRepo = null;
     private Set<Demographic> demographics;
 
     public DemographicImp(){
@@ -17,9 +17,9 @@ public class DemographicImp implements DemographicRepo {
 
     public static DemographicImp getDemographicRepo(){
         if(demographicRepo == null){
-            return new DemographicImp();
+            return demographicRepo;
         }
-        ///WTFFFFFFF
+
         return (DemographicImp) demographicRepo;
     }
 
