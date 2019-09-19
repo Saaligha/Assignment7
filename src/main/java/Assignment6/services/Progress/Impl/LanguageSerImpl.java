@@ -1,6 +1,7 @@
 package Assignment6.services.Progress.Impl;
 
 import Assignment6.domain.Progress.Language;
+import Assignment6.repository.Progress.Impl.LanguageImp;
 import Assignment6.repository.Progress.LanguageRepo;
 import Assignment6.services.Progress.LanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,18 +10,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("LanguageSerImp")
+@Service("LanguageServiceImp")
 public class LanguageSerImpl implements LanguageService {
-    @Autowired
-    @Qualifier ("LanguageImp")
+    private LanguageSerImpl service = null;
     private LanguageRepo repository;
 
-    public LanguageSerImpl(LanguageRepo repository){this.repository = repository;}
-
+    public LanguageSerImpl( ){this.repository = LanguageImp.getRepository();}
+    public LanguageSerImpl getService(){
+        if(service==null){
+            service= new LanguageSerImpl();
+        }
+        return service;
+    }
 
     @Override
     public Set<Language> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override

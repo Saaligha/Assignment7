@@ -2,6 +2,7 @@ package Assignment6.services.Progress.Impl;
 
 import Assignment6.domain.Progress.DifficultyLevel;
 import Assignment6.repository.Progress.DifficultyRepo;
+import Assignment6.repository.Progress.Impl.DifficultyImp;
 import Assignment6.services.Progress.DifficultyLevelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,19 +10,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("DifficultyLevelSer")
+@Service("DifficultyLevelServiceImpl")
 public class DifficultyLevelSerImpl implements DifficultyLevelService {
-@Autowired
-@Qualifier("DifficultyImp")
+private DifficultyLevelSerImpl service = null;
 private DifficultyRepo repository;
 
-public DifficultyLevelSerImpl(DifficultyRepo repository){
-    this.repository = repository;
+public DifficultyLevelSerImpl( ){
+    this.repository = DifficultyImp.getRepository();
 }
 
     @Override
     public Set<DifficultyLevel> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override

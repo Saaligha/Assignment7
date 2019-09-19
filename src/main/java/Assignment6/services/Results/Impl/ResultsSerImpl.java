@@ -1,6 +1,7 @@
 package Assignment6.services.Results.Impl;
 
 import Assignment6.domain.Results.Results;
+import Assignment6.repository.Results.Impl.ResultsRepositoryImp;
 import Assignment6.repository.Results.ResultsRepo;
 import Assignment6.services.Results.ResultsServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,21 +10,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("ResultsSerImpl")
+@Service("ResultsServiceImpl")
 public class ResultsSerImpl implements ResultsServices {
-    @Autowired
-    @Qualifier("ResultsImp")
+
     private ResultsRepo repository;
+    private ResultsSerImpl service = null;
 
-
-    public ResultsSerImpl(ResultsRepo repository) {
-        this.repository = repository;
+    public ResultsSerImpl( ) {
+        this.repository = ResultsRepositoryImp.getResultsRepository();
+    }
+    public ResultsSerImpl getService(){
+        if(service==null){
+            service=new ResultsSerImpl();
+        }
+        return service;
     }
 
 
     @Override
     public Set<Results> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override

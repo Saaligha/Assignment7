@@ -12,10 +12,10 @@ public class CourseImp implements CourseRepo {
 
 
     private static CourseImp repository = null;
-    private Map<String, Course> courses;
+    private Set< Course> courses;
 
     private CourseImp() {
-        this.courses = new HashMap<>();
+        this.courses = new HashSet<>();
     }
 
 
@@ -27,36 +27,40 @@ public class CourseImp implements CourseRepo {
 
     @Override
     public Course create(Course course) {
-       this.courses.put(course.getCourseId(), course);
+       courses.add(course);
        return course;
     }
 
     public Course update(Course course){
-        this.courses.replace(course.getCourseId(), course);
-        return course;
+        Course inDB = read(course.getCourseId());
+
+        if(inDB != null){
+            courses.remove(inDB);
+            courses.add(course);
+            return course;
+        }
+
+        return null;
     }
 
     @Override
-    public void delete(String s) {
-        this.courses.remove(s);
+    public void delete(String id) {
+        this.courses.remove(id);
     }
 
-    public Course delete(Course course){
-        this.courses.remove(course);
-        return course;
+    public void delete(Course c){
+        Course inDB= read(String.valueOf(c));
+        courses.remove(inDB);
     }
 
 
 
     @Override
-    public Course read(final String courseId) {
-return this.courses.get(courseId);
+    public Course read(String courseId) {
+        return courses.stream().filter(course -> course.getCourseId().equals(courseId)).findAny().orElse(null);
+
     }
 
     public Set<Course> getAll(){
-
-        Collection<Course> courses = this.courses.values();
-        Set<Course> set = new HashSet<>();
-        set.addAll(courses);
-        return set;
+        return courses;
 }}

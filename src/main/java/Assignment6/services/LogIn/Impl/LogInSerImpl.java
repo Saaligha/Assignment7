@@ -10,20 +10,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("LogInSerImpl")
+@Service("LogInServiceImpl")
 public class LogInSerImpl implements LogInService {
    private LogInSerImpl service = null;
     private LogInRepo repository;
 
-    public LogInSerImpl(LogInRepo repository){
+    public LogInSerImpl(){
         this.repository = LogInImp.getRepository();
 
     }
-    public
+    public LogInSerImpl getService(){
+        if (service == null){
+            service = new LogInSerImpl();
+        }
+        return service;
+    }
+
 
     @Override
     public Set<LogIn> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override

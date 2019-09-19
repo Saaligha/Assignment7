@@ -1,6 +1,7 @@
 package Assignment6.services.Payment.Impl;
 
 import Assignment6.domain.Payment.Subscription;
+import Assignment6.repository.Payment.Impl.SubscriptionImp;
 import Assignment6.repository.Payment.SubscriptionRepo;
 import Assignment6.services.Payment.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +13,22 @@ import java.util.Set;
 @Service("SubscriptionSerImpl")
 public class SubscriptionSerImpl implements SubscriptionService {
 
-    @Autowired
-    @Qualifier("SubscriptionImp")
+    private SubscriptionSerImpl service = null;
     private SubscriptionRepo repository;
 
-    public SubscriptionSerImpl(SubscriptionRepo repository) {
-        this.repository = repository;
+    public SubscriptionSerImpl() {
+        this.repository = SubscriptionImp.getRepository();
     }
-
+    public SubscriptionSerImpl getService(){
+        if(service== null){
+            service = new SubscriptionSerImpl();
+        }
+        return service;
+    }
 
     @Override
     public Set<Subscription> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override

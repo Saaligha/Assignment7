@@ -9,22 +9,24 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("CourseSerImpl")
+@Service("CourseServiceImpl")
 public class CourseSerImp implements CourseService {
-@Autowired
-@Qualifier("CourseImp")
-private CourseRepo repository;
 
-    public CourseSerImp(CourseRepo repository) {
+private CourseRepo repository;
+private CourseSerImp service = null;
+    public CourseSerImp() {
         this.repository = repository;
     }
-
+    public CourseSerImp getService(){
+        if(service==null){
+            service=new CourseSerImp();
+        }
+        return service;
+    }
 
     @Override
     public Set<Course> getAll() {
-        Set<Course> courses = this.repository.getAll();
-        System.out.println("getAll:" +courses);
-        return courses;
+        return this.repository.getAll();
     }
 
     @Override

@@ -2,6 +2,7 @@ package Assignment6.services.Results.Impl;
 
 import Assignment6.domain.Results.Certificate;
 import Assignment6.repository.Results.CertificateRepo;
+import Assignment6.repository.Results.Impl.CertificateRepositoryImp;
 import Assignment6.services.Results.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,19 +10,24 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("CertificateSerImpl")
+@Service("CertificateServiceImpl")
 public class CertificateSerImp implements CertificateService {
-@Autowired
 
-@Qualifier("CertificateImp")
 private CertificateRepo repository;
-public CertificateSerImp(CertificateRepo repository){
-    this.repository = repository;
+private CertificateSerImp service = null;
+public CertificateSerImp( ){
+    this.repository = CertificateRepositoryImp.getCertificateRepository();
+}
+public CertificateSerImp getService(){
+    if(service==null){
+        service = new CertificateSerImp();
+    }
+    return service;
 }
 
     @Override
     public Set<Certificate> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override

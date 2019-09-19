@@ -24,7 +24,7 @@ public class PayRepositoryImp implements PayRepo {
     }
     @Override
     public Set<Pay> getAll() {
-        return null;
+        return pays;
     }
 
     @Override
