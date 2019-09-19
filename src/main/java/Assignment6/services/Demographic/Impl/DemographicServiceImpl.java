@@ -2,27 +2,24 @@ package Assignment6.services.Demographic.Impl;
 
 import Assignment6.domain.Demographic.Demographic;
 import Assignment6.repository.Demographic.DemographicRepo;
+import Assignment6.repository.Demographic.Impl.DemographicImp;
 import Assignment6.services.Demographic.DemographicService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service("DemographicService")
-public class DemographicSerImpl implements DemographicService {
+public class DemographicServiceImpl implements DemographicService {
 
-@Autowired
-@Qualifier("DemographicImp")
-
+private DemographicServiceImpl service = null;
 private DemographicRepo repository;
 
-public DemographicSerImpl(DemographicRepo repository){this.repository = repository; }
-
+public DemographicServiceImpl(DemographicRepo repository){this.repository = DemographicImp.getDemographicRepo(); }
+ 
 
     @Override
     public Set<Demographic> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override

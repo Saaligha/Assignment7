@@ -1,6 +1,7 @@
 package Assignment6.services.Demographic.Impl;
 
 import Assignment6.domain.Demographic.Location;
+import Assignment6.repository.Demographic.Impl.LocationImp;
 import Assignment6.repository.Demographic.LocationRepo;
 import Assignment6.services.Demographic.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,27 +12,26 @@ import java.util.Set;
 
 @Service("LocationSerImp")
 public class LocationSerImpl implements LocationService {
-    @Autowired
-    @Qualifier("LocationImp")
+   private LocationSerImpl service = null;
     private LocationRepo repository;
 
     public LocationSerImpl(LocationRepo repository){
-        this.repository = repository;
+        this.repository = LocationImp.getRepo();
     }
 
     @Override
     public Set<Location> getAll() {
-        return null;
+        return this.repository.getAll();
     }
 
     @Override
     public Location create(Location type) {
-        return repository.create(type);
+        return this.repository.create(type);
     }
 
     @Override
     public Location update(Location type) {
-        return repository.update(type);
+        return this.repository.update(type);
     }
 
     @Override

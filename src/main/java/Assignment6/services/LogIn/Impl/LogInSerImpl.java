@@ -1,6 +1,7 @@
 package Assignment6.services.LogIn.Impl;
 
 import Assignment6.domain.LogIn.LogIn;
+import Assignment6.repository.LogIn.Impl.LogInImp;
 import Assignment6.repository.LogIn.LogInRepo;
 import Assignment6.services.LogIn.LogInService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,14 @@ import java.util.Set;
 
 @Service("LogInSerImpl")
 public class LogInSerImpl implements LogInService {
-    @Autowired
-    @Qualifier("LogInImp")
+   private LogInSerImpl service = null;
     private LogInRepo repository;
 
     public LogInSerImpl(LogInRepo repository){
-        this.repository = repository;
+        this.repository = LogInImp.getRepository();
 
     }
+    public
 
     @Override
     public Set<LogIn> getAll() {
