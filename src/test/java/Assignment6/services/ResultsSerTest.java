@@ -2,7 +2,7 @@ package Assignment6.services;
 
 import Assignment6.domain.Results.Results;
 import Assignment6.factory.Results.ResultsFactory;
-import Assignment6.repository.Results.Impl.ResultsImp;
+import Assignment6.repository.Results.Impl.ResultsRepositoryImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -11,12 +11,12 @@ import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ResultsSerTest {
-    private ResultsImp repository;
+    private ResultsRepositoryImp repository;
     private Results res;
 
     @Before
     public void setUp() throws Exception{
-        this.repository = ResultsImp.getRepository();
+        this.repository = ResultsRepositoryImp.getRepository();
         this.res = ResultsFactory.getRes(50, 56, true);
 
     }

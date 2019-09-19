@@ -5,58 +5,55 @@ import Assignment6.repository.Demographic.DemographicRepo;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-@Repository("DemographicImp")
+@Repository("DemographicInMemory")
 public class DemographicImp implements DemographicRepo {
 
+    private static DemographicRepo demographicRepo = null;
+    private Set<Demographic> demographics;
 
-    private static DemographicImp repository = null;
-    private Map<String ,Demographic> demo;
-
-    private DemographicImp() {
-        this.demo = new HashMap<>();
+    public DemographicImp(){
+        demographics = new HashSet<>();
     }
 
-    public static DemographicImp getRepo(){
-        if(repository == null) repository = new DemographicImp();
-        return repository;
+    public static DemographicImp getDemographicRepo(){
+        if(demographicRepo == null){
+            return new DemographicImp();
+        }
+        ///WTFFFFFFF
+        return (DemographicImp) demographicRepo;
     }
+
     @Override
     public Set<Demographic> getAll() {
-
-        Collection<Demographic> demo = this.demo.values();
-        Set<Demographic> set = new HashSet<>();
-        set.addAll(demo);
-
-
-        return set;
+        return demographics;
     }
 
     @Override
     public Demographic create(Demographic demographic) {
-        this.demo.put(demographic.getGender(), demographic);
-        return demographic;
+    demographics.add(demographic);
+    return demographic;
     }
 
     @Override
     public Demographic update(Demographic demographic) {
-        this.demo.replace(demographic.getGender(), demographic);
-        return demographic;
+        Demographic inDB = read(demographic.getGender());
+
+        if(inDB != null){
+            demographics.remove(demographic);
+            demographics.add(demographic);
+            return demographic;
+        }
+        return null;
     }
 
     @Override
-    public void delete(String demographic) {
-        this.demo.remove(demographic);
-
+    public void delete(String id) {
+     Demographic inDB = read(id);
+     demographics.remove(inDB);
     }
 
     @Override
-    public Demographic read(String gender){
-        return  this.demo.get(gender);
-
-    } 
-       
-
-
-
-
+    public Demographic read(String demographic) {
+        return demographics.stream().filter(demographic1 -> demographic1.getGender().equals(demographic)).findAny().orElse(null);
+    }
 }

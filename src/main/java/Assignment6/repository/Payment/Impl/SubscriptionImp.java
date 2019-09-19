@@ -6,45 +6,51 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("SubscriptionImp")
+@Repository("SubscriptionInMemory")
 public class SubscriptionImp implements SubscriptionRepo {
-    private static SubscriptionImp repository = null;
-    private Map<String, Subscription> sub;
+    private static SubscriptionImp subRepository = null;
+    private Set<Subscription> subscriptions;
 
     private SubscriptionImp(){
-        this.sub = new HashMap<>();
+        this.subscriptions = new HashSet<>();
     }
 
     public static SubscriptionImp getRepository(){
-        if(repository == null) repository = new SubscriptionImp();
-        return repository;
+        if(subRepository == null) subRepository = new SubscriptionImp();
+        return subRepository;
     }
     @Override
     public Subscription create(Subscription subscription) {
-        this.sub.put(String.valueOf(subscription.isType()), subscription);
+        subscriptions.add(subscription);
         return subscription;
     }
 
     @Override
-    public Subscription update(Subscription subscription){this.sub.replace(String.valueOf(subscription.isType()), subscription);
-        return subscription;
+    public Subscription update(Subscription subscription){
+        Subscription inDB = read(subscription.getType());
+
+        if(inDB != null){
+            subscriptions.remove(inDB);
+            subscriptions.add(subscription);
+            return subscription;
+        }
+
+        return null;
     }
 
     @Override
-    public void delete(String s) {
-        this.sub.remove(s);
+    public void delete(String type) {
+        this.subscriptions.remove(type);
     }
 
     @Override
-    public Subscription read(String s) {
-        return this.sub.get(s);
+    public Subscription read(String type) {
+        return subscriptions.stream().filter(subscription -> subscription.getType().equals(type)).findAny().orElse(null);
+
     }
 
     @Override
     public Set<Subscription> getAll() {
-        Collection<Subscription> courses = this.sub.values();
-        Set<Subscription> set = new HashSet<>();
-        set.addAll(courses);
-        return set;
+        return subscriptions;
     }
 }

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Pay {
 
-    private int amt;
+    private String amt;
 
     private Pay(){}
 
@@ -12,19 +12,19 @@ public class Pay {
         this.amt = builder.amt;
     }
 
-    public void setAmt(int amt) {
+    public void setAmt(String amt) {
         this.amt = amt;
     }
 
-    public int getAmt(){
+    public String getAmt(){
         return amt;
     }
     public static class Builder{
 
 
-        private int amt;
+        private String amt;
 
-        public Builder amt(int amt){
+        public Builder amt(String amt){
             this.amt = amt;
             return this;
         }
@@ -38,7 +38,7 @@ public class Pay {
             if (this == o) return true;
             if (!(o instanceof Builder)) return false;
             Builder builder = (Builder) o;
-            return amt == builder.amt;
+            return Objects.equals(amt, builder.amt);
         }
 
         @Override

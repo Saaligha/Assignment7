@@ -1,21 +1,23 @@
 package Assignment6.repository.User.Impl;
 
+import Assignment6.domain.User.PremiumUser;
 import Assignment6.domain.User.User;
+import Assignment6.repository.User.PremiumUserRepo;
 import Assignment6.repository.User.UserRepo;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Repository("PremiumUserImp")
-public class PremiumUserImp implements UserRepo {
+@Repository("PremiumUserInMemory")
+public class PremiumUserImp implements PremiumUserRepo {
 
     private static PremiumUserImp repository = null;
-    private Set<User> users;
+    private Set<PremiumUser> Pusers;
 
 
     private PremiumUserImp() {
-        this.users = new HashSet<>();
+        this.Pusers = new HashSet<>();
     }
 
     public static PremiumUserImp getRepository() {
@@ -23,38 +25,39 @@ public class PremiumUserImp implements UserRepo {
         return repository;
     }
 
-    public User create(User users) {
-        this.users.add(users);
-        return users;
+    @Override
+    public Set<PremiumUser> getAll() {
+        return Pusers;
     }
-
-    public User read(String s) {
-        User r = null;
-        for (User cla: users){
-            if (cla.getUserName().equals(s)) {
-                System.out.println(cla.getUserName() + cla.getUserSname());
-                r = new User.Builder().UserName(s).UserSname(s).UserId(s).build();
-            }
-        }
-
-        return r;
-    }
-
-    public User update(User user) {
-
-        this.users.add(user);
-        return user;
-    }
-
-    public void delete(String user) {
-      this.users.remove(user);
-     // return user;
-
-    }
-
 
     @Override
-    public Set<User> getAll() {
+    public PremiumUser create(PremiumUser premiumUser) {
+        Pusers.add(premiumUser);
+        return premiumUser;
+    }
+
+    @Override
+    public PremiumUser update(PremiumUser premiumUser) {
+        PremiumUser inDB = read(premiumUser.getUserId());
+
+        if(inDB != null){
+            Pusers.remove(inDB);
+            Pusers.add(premiumUser);
+            return premiumUser;
+        }
+
         return null;
+    }
+
+    @Override
+    public void delete(String id) {
+        PremiumUser inDB = read(id);
+        Pusers.remove(inDB);
+    }
+
+    @Override
+    public PremiumUser read(String id) {
+        return Pusers.stream().filter(premiumUser -> premiumUser.getUserId().equals(id)).findAny().orElse(null);
+
     }
 }

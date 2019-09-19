@@ -1,5 +1,6 @@
 package Assignment6.repository.User;
 
+import Assignment6.domain.User.PremiumUser;
 import Assignment6.domain.User.User;
 import Assignment6.repository.RepoA;
 

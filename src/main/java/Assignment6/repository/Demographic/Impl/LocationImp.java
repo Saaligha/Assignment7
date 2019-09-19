@@ -6,14 +6,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("LocationImp")
+@Repository("LocationInMemory")
 public class LocationImp implements LocationRepo {
 
     private static LocationImp repository = null;
-    private Map<String, Location> loc;
+    private Set<Location> loc;
 
     private LocationImp(){
-        this.loc = new HashMap<>();
+        this.loc = new HashSet<>();
     }
 
     public static LocationImp getRepo(){
@@ -23,34 +23,37 @@ public class LocationImp implements LocationRepo {
 
     @Override
     public Set<Location> getAll() {
-        Collection<Location> courses = this.loc.values();
-        Set<Location> set = new HashSet<>();
-        set.addAll(courses);
-        return set;
-
+        return loc;
     }
 
     @Override
     public Location create(Location location) {
-        this.loc.put(location.getRegion(), location);
+        loc.add(location);
         return location;
     }
 
     @Override
     public Location update(Location location) {
-       this.loc.replace(location.getRegion(), location);
-       return location;
+
+        Location inDB = read(location.getRegion());
+
+        if(inDB != null){
+            loc.remove(inDB);
+            loc.add(location);
+            return location;
+        }
+        return null;
     }
 
     @Override
-    public void delete(String s) {
-        this.loc.remove(s);
+    public void delete(String id) {
+    Location inDB = read(id);
+    loc.remove(inDB);
     }
 
     @Override
-    public Location read(final String s) {
+    public Location read(String s) {
+        return loc.stream().filter(location -> location.getRegion().equals(s)).findAny().orElse(null);
 
-        return this.loc.get(s);
     }
-
 }

@@ -3,8 +3,8 @@ package Assignment6.domain.Results;
 import java.util.Objects;
 
 public class Results {
-    private int finalResults, semesterResults;
-    private boolean passOrFail;
+    private String finalResults, semesterResults;
+    private String passOrFail;
 
 
     private Results(){}
@@ -17,32 +17,32 @@ public class Results {
 
    }
 
-    public int getFinalResults() {
+    public String getFinalResults() {
         return finalResults;
     }
 
-    public int getSemesterResults() {
+    public String getSemesterResults() {
         return semesterResults;
     }
 
-    public boolean isPassOrFail() {
+    public String isPassOrFail() {
         return passOrFail;
     }
     public static class Builder {
-        private int finalResults,semesterResults;
-        private boolean passOrFail;
+        private String finalResults,semesterResults;
+        private String passOrFail;
 
-        public Builder FinalResults(int finalResults) {
+        public Builder FinalResults(String finalResults) {
             this.finalResults = finalResults;
             return this;
         }
 
-        public Builder SemesterResults(int semesterResults) {
+        public Builder SemesterResults(String semesterResults) {
             this.semesterResults = semesterResults;
             return this;
         }
 
-        public Builder PassOrFail(boolean passOrFail) {
+        public Builder PassOrFail(String passOrFail) {
             this.passOrFail = passOrFail;
             return this;
         }

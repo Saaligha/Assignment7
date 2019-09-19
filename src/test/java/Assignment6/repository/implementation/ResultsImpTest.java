@@ -2,18 +2,17 @@ package Assignment6.repository.implementation;
 
 import Assignment6.domain.Results.Results;
 import Assignment6.factory.Results.ResultsFactory;
-import Assignment6.repository.Results.Impl.ResultsImp;
+import Assignment6.repository.Results.Impl.ResultsRepositoryImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ResultsImpTest {private ResultsImp repository;
+public class ResultsImpTest {private ResultsRepositoryImp repository;
     private Results res;
 
     @Before
     public void setUp() throws Exception{
-        this.repository = ResultsImp.getRepository();
-        this.res = ResultsFactory.getRes(50, 56, true);
+
 
     }
     @Test
