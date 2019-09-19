@@ -1,5 +1,7 @@
 package Assignment6.domain;
 
+import java.util.Objects;
+
 public class Results {
     private int finalResults, semesterResults;
     private boolean passOrFail;
@@ -14,6 +16,7 @@ public class Results {
         this.passOrFail = builder.passOrFail;
 
    }
+
     public int getFinalResults() {
         return finalResults;
     }
@@ -44,5 +47,20 @@ public class Results {
             return this;
         }
         public Results build(){return new Results(this);}
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Results)) return false;
+        Results results = (Results) o;
+        return getFinalResults() == results.getFinalResults() &&
+                getSemesterResults() == results.getSemesterResults() &&
+                isPassOrFail() == results.isPassOrFail();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFinalResults(), getSemesterResults(), isPassOrFail());
     }
 }

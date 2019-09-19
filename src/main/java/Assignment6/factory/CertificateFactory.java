@@ -5,6 +5,6 @@ import Assignment6.domain.Certificate;
 public class CertificateFactory {
 
 public static Certificate getCertificate(String certificate){
-    return new Certificate.Builder().certificate("Diploma").build();
+    return new Certificate.Builder().certificate(certificate).build();
 }
 }

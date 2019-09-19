@@ -11,7 +11,7 @@ private Certificate(){
 }
 
 private Certificate(Builder builder){
-
+this.certificate = builder.certificate;
 }
 
 public String getCertificate(){
@@ -23,7 +23,9 @@ public Certificate certificate(String certificate){
     return this;
 }
 
-public static class Builder{
+
+
+    public static class Builder{
 
     private String certificate;
 

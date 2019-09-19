@@ -2,6 +2,8 @@ package Assignment6.domain;
 
 import javafx.util.Builder;
 
+import java.util.Objects;
+
 public class Pay {
 
     private int amt;
@@ -10,6 +12,10 @@ public class Pay {
 
     private Pay(Builder builder){
         this.amt = builder.amt;
+    }
+
+    public void setAmt(int amt) {
+        this.amt = amt;
     }
 
     public int getAmt(){
@@ -29,5 +35,17 @@ public class Pay {
             return new Pay(this);
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Builder)) return false;
+            Builder builder = (Builder) o;
+            return amt == builder.amt;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(amt);
+        }
     }
 }

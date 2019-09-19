@@ -1,5 +1,7 @@
 package Assignment6.domain;
 
+import java.util.Objects;
+
 public class Quiz {
     private String quizId, quizDescr, quizP;
 
@@ -21,6 +23,17 @@ public class Quiz {
         return quizDescr;
     }
 
+    public void setQuizId(String quizId) {
+        this.quizId = quizId;
+    }
+
+    public void setQuizDescr(String quizDescr) {
+        this.quizDescr = quizDescr;
+    }
+
+    public void setQuizP(String quizP) {
+        this.quizP = quizP;
+    }
 
     public static class Builder {
         private String quizId, quizDescr, quizP;
@@ -44,5 +57,20 @@ public class Quiz {
         public Quiz build(){
             return new Quiz(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Quiz)) return false;
+        Quiz quiz = (Quiz) o;
+        return Objects.equals(getQuizId(), quiz.getQuizId()) &&
+                Objects.equals(getQuizDescr(), quiz.getQuizDescr()) &&
+                Objects.equals(getQuizP(), quiz.getQuizP());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getQuizId(), getQuizDescr(), getQuizP());
     }
 }

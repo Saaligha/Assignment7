@@ -6,52 +6,42 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("CertificateImp")
-public class CertificateImp implements CertificateRepo {
+@Repository("CertificateImnMemory")
+public class CertificateImp implements CertificateRepo{
 
-    private static CertificateImp repository = null;
-    private Map<String,Certificate> certificate;
+    private static CertificateImp certificateRepository = null;
+    private Set<Certificate> certificates;
 
-    private CertificateImp(){
-        this.certificate = new HashMap<>();
-
+    public static CertificateImp getCertificateRepository(){
+        if(certificateRepository == null){
+            return new CertificateImp();
+        }
+        return certificateRepository;
     }
 
-    public static CertificateImp getRepository(){
-        if(repository == null) repository = new CertificateImp();
-        return repository;
-    }
     @Override
     public Set<Certificate> getAll() {
-        Collection<Certificate> courses = this.certificate.values();
-        Set<Certificate> set = new HashSet<>();
-        set.addAll(courses);
-        return set;
+        return null;
     }
 
     @Override
     public Certificate create(Certificate certificate) {
-        this.certificate.put(certificate.getCertificate(), certificate);
+        certificates.add(certificate);
         return certificate;
     }
 
     @Override
     public Certificate update(Certificate certificate) {
-        this.certificate.replace(certificate.getCertificate(), certificate);
-        return certificate;
+        return null;
     }
 
     @Override
     public void delete(String s) {
-    this.certificate.remove(s);
+certificates.remove(s);
     }
 
     @Override
     public Certificate read(String s) {
-        return this.certificate.get(s);
+        return null;
     }
-
-
-
-
 }

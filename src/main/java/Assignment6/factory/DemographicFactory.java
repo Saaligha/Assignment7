@@ -5,9 +5,10 @@ import Assignment6.domain.Demographic;
 public class DemographicFactory {
 
 
-    public static Demographic demo(String race) {
+    public static Demographic demo(String race, String gender) {
         return new Demographic.Builder()
-                .setRace(race)
+               .race(race)
+                .gender(gender)
                 .build();
 
     }

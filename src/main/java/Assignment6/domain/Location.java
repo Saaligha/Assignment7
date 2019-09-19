@@ -1,5 +1,7 @@
 package Assignment6.domain;
 
+import java.util.Objects;
+
 public class Location {
     private String region;
 
@@ -10,6 +12,10 @@ public class Location {
 
     public String getRegion(){
         return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public static class Builder{
@@ -26,6 +32,19 @@ public class Location {
         public Builder copy(Location savedLocation){
             this.region = region;
             return this;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Builder)) return false;
+            Builder builder = (Builder) o;
+            return Objects.equals(region, builder.region);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(region);
         }
     }
 }

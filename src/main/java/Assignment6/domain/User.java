@@ -2,19 +2,28 @@ package Assignment6.domain;
 
 import javafx.util.Builder;
 
-import javax.xml.bind.SchemaOutputResolver;
+
 import java.util.Objects;
 
 public class User {
 
     private String userId, userName, userSname;
-    //  private Set<Language> language;
 
+    private User() { }
 
-    private User() {
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    private User(Builder builder) {
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setUserSname(String userSname) {
+        this.userSname = userSname;
+    }
+
+    User(Builder builder) {
 
         this.userId = builder.userId;
         this.userName = builder.userName;

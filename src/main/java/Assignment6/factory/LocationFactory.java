@@ -6,7 +6,7 @@ import Assignment6.domain.Location;
 public class LocationFactory {
 
     public static Location UserRegion(String region) {
-        return new Location.Builder().region("SA").build();
+        return new Location.Builder().region(region).build();
     }
 }
 

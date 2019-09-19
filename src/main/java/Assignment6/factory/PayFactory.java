@@ -4,6 +4,6 @@ import Assignment6.domain.Pay;
 
 public class PayFactory {
  public static Pay getPay(int pay){
-     return new Pay.Builder().amt(5).build();
+     return new Pay.Builder().amt(pay).build();
  }
 }

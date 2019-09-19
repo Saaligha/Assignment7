@@ -1,27 +1,25 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.Demographic;
-import Assignment6.domain.Location;
 import Assignment6.domain.User;
-import Assignment6.repository.RepoA;
 import Assignment6.repository.UserRepo;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-@Repository("UserImp")
-public class UserImp implements UserRepo {
 
-    private static UserImp repository = null;
+@Repository("PremiumUserImp")
+public class PremiumUserImp implements UserRepo {
+
+    private static PremiumUserImp repository = null;
     private Set<User> users;
 
 
-    private UserImp() {
+    private PremiumUserImp() {
         this.users = new HashSet<>();
     }
 
-    public static UserImp getRepository() {
-        if (repository == null) repository = new UserImp();
+    public static PremiumUserImp getRepository() {
+        if (repository == null) repository = new PremiumUserImp();
         return repository;
     }
 
@@ -53,6 +51,7 @@ public class UserImp implements UserRepo {
      // return user;
 
     }
+
 
     @Override
     public Set<User> getAll() {

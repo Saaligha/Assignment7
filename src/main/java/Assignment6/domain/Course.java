@@ -1,6 +1,8 @@
 package Assignment6.domain;
 
 
+import java.util.Objects;
+
 public class Course {
 
     private String courseId, courseName;
@@ -48,7 +50,19 @@ public class Course {
             return new Course(this);
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Builder)) return false;
+            Builder builder = (Builder) o;
+            return Objects.equals(courseId, builder.courseId) &&
+                    Objects.equals(courseName, builder.courseName);
+        }
 
+        @Override
+        public int hashCode() {
+            return Objects.hash(courseId, courseName);
+        }
     }
 
     @Override
