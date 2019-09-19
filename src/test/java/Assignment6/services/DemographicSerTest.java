@@ -1,8 +1,8 @@
 package Assignment6.services;
 
-import Assignment6.domain.Demographic;
-import Assignment6.factory.DemographicFactory;
-import Assignment6.repository.implementation.DemographicImp;
+import Assignment6.domain.Demographic.Demographic;
+import Assignment6.factory.Demographic.DemographicFactory;
+import Assignment6.repository.Demographic.Impl.DemographicImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;

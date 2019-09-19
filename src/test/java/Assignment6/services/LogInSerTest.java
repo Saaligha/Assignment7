@@ -1,14 +1,13 @@
 package Assignment6.services;
 
-import Assignment6.domain.LogIn;
-import Assignment6.factory.LogInFactory;
-import Assignment6.repository.implementation.LogInImp;
+import Assignment6.domain.LogIn.LogIn;
+import Assignment6.factory.LogIn.LogInFactory;
+import Assignment6.repository.LogIn.Impl.LogInImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import sun.rmi.runtime.Log;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LogInSerTest {

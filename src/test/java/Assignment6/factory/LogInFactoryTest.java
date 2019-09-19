@@ -1,11 +1,10 @@
 package Assignment6.factory;
 
-import Assignment6.domain.LogIn;
+import Assignment6.domain.LogIn.LogIn;
+import Assignment6.factory.LogIn.LogInFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class LogInFactoryTest {
  private String logIn;

@@ -1,7 +1,8 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.Language;
-import Assignment6.factory.LanguageFactory;
+import Assignment6.domain.Progress.Language;
+import Assignment6.factory.Progress.LanguageFactory;
+import Assignment6.repository.Progress.Impl.LanguageImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

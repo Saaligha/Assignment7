@@ -1,13 +1,12 @@
 package Assignment6.controller;
 
-import Assignment6.domain.Certificate;
-import Assignment6.services.CertificateService;
+import Assignment6.domain.Results.Certificate;
+import Assignment6.services.Results.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Set;
 
 @RestController

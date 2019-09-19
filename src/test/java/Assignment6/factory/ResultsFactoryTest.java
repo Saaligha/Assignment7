@@ -1,12 +1,10 @@
 package Assignment6.factory;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.Results;
+import Assignment6.domain.Results.Results;
+import Assignment6.factory.Results.ResultsFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ResultsFactoryTest {
 

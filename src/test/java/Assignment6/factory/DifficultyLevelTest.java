@@ -1,10 +1,9 @@
 package Assignment6.factory;
 
-import Assignment6.domain.DifficultyLevel;
+import Assignment6.domain.Progress.DifficultyLevel;
+import Assignment6.factory.Progress.DifficultyLevelFactory;
 import org.junit.Assert;
 import org.junit.Before;
-
-import static org.junit.Assert.*;
 
 public class DifficultyLevelTest {
     private int l;

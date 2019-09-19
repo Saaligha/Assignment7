@@ -1,6 +1,7 @@
 package Assignment6.factory;
 
-import Assignment6.domain.HoursClocked;
+import Assignment6.domain.Progress.HoursClocked;
+import Assignment6.factory.Progress.HoursClockedFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,6 +1,7 @@
 package Assignment6.factory;
 
-import Assignment6.domain.Quiz;
+import Assignment6.domain.Progress.Quiz;
+import Assignment6.factory.Progress.QuizFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

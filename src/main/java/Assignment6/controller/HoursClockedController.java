@@ -1,9 +1,7 @@
 package Assignment6.controller;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.HoursClocked;
-import Assignment6.services.CourseService;
-import Assignment6.services.HoursClockedService;
+import Assignment6.domain.Progress.HoursClocked;
+import Assignment6.services.Progress.HoursClockedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;

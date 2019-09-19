@@ -1,16 +1,12 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.HoursClocked;
-import Assignment6.factory.HoursClockedFactory;
-import Assignment6.repository.HoursClockedRepo;
+import Assignment6.domain.Progress.HoursClocked;
+import Assignment6.factory.Progress.HoursClockedFactory;
+import Assignment6.repository.Progress.HoursClockedRepo;
+import Assignment6.repository.Progress.Impl.HoursClockedImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.sql.SQLOutput;
-import java.util.Set;
-
-import static org.junit.Assert.*;
 
 public class HoursClockedImpTest {
 

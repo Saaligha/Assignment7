@@ -1,19 +1,14 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.Demographic;
-import Assignment6.domain.Demographic;
+import Assignment6.domain.Demographic.Demographic;
 
-import Assignment6.factory.DemographicFactory;
-import Assignment6.repository.DemographicRepo;
+import Assignment6.factory.Demographic.DemographicFactory;
+import Assignment6.repository.Demographic.Impl.DemographicImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Set;
-
 import static com.sun.deploy.config.JREInfo.getAll;
-import static org.junit.Assert.*;
 
 public class DemographicImpTest {    private DemographicImp repository;
     private Demographic demo;

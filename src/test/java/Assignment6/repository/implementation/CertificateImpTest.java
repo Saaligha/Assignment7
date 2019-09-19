@@ -1,7 +1,8 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.Certificate;
-import Assignment6.factory.CertificateFactory;
+import Assignment6.domain.Results.Certificate;
+import Assignment6.factory.Results.CertificateFactory;
+import Assignment6.repository.Results.Impl.CertificateImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

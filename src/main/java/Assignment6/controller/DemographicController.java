@@ -1,8 +1,7 @@
 package Assignment6.controller;
 
-import Assignment6.domain.Demographic;
-import Assignment6.services.CourseService;
-import Assignment6.services.DemographicService;
+import Assignment6.domain.Demographic.Demographic;
+import Assignment6.services.Demographic.DemographicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;

@@ -1,8 +1,8 @@
 package Assignment6.services;
 
-import Assignment6.domain.Course;
-import Assignment6.factory.CourseFactory;
-import Assignment6.repository.implementation.CourseImp;
+import Assignment6.domain.Progress.Course;
+import Assignment6.factory.Progress.CourseFactory;
+import Assignment6.repository.Progress.Impl.CourseImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;

@@ -1,15 +1,13 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.Quiz;
-import Assignment6.factory.QuizFactory;
-import Assignment6.repository.QuizRepo;
+import Assignment6.domain.Progress.Quiz;
+import Assignment6.factory.Progress.QuizFactory;
+import Assignment6.repository.Progress.Impl.QuizImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Set;
-
-import static org.junit.Assert.*;
 
 public class QuizImpTest {
 

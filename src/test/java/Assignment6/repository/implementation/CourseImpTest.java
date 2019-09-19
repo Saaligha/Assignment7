@@ -1,18 +1,16 @@
 package Assignment6.repository.implementation;
-import java.util.Set;
-import Assignment6.domain.Course;
-import Assignment6.factory.CourseFactory;
-import Assignment6.repository.CourseRepo;
+import Assignment6.domain.Progress.Course;
+import Assignment6.factory.Progress.CourseFactory;
+import Assignment6.repository.Progress.CourseRepo;
+import Assignment6.repository.Progress.Impl.CourseImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import java.util.Set;
-
 import static org.apache.logging.log4j.util.LambdaUtil.getAll;
-import static org.junit.Assert.*;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CourseImpTest {
   private CourseRepo repository;

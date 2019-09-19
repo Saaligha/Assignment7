@@ -1,11 +1,10 @@
 package Assignment6.factory;
 
-import Assignment6.domain.Language;
+import Assignment6.domain.Progress.Language;
+import Assignment6.factory.Progress.LanguageFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class LanguageFactoryTest {
 

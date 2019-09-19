@@ -1,15 +1,11 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.DifficultyLevel;
-import Assignment6.factory.DifficultyLevelFactory;
-import Assignment6.repository.DifficultyRepo;
+import Assignment6.domain.Progress.DifficultyLevel;
+import Assignment6.factory.Progress.DifficultyLevelFactory;
+import Assignment6.repository.Progress.Impl.DifficultyImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Set;
-
-import static org.junit.Assert.*;
 
 public class DifficultyImpTest {
     private DifficultyImp repository;

@@ -1,20 +1,13 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.Location;
-import Assignment6.domain.Location;
-import Assignment6.domain.Location;
-import Assignment6.factory.CourseFactory;
-import Assignment6.factory.LocationFactory;
-import Assignment6.repository.LocationRepo;
+import Assignment6.domain.Demographic.Location;
+import Assignment6.factory.Demographic.LocationFactory;
+import Assignment6.repository.Demographic.Impl.LocationImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Set;
-
 import static com.sun.deploy.config.JREInfo.getAll;
-import static org.junit.Assert.*;
 
 public class LocationImpTest {
     private LocationImp repository;

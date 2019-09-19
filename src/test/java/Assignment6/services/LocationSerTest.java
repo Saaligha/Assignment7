@@ -1,14 +1,13 @@
 package Assignment6.services;
 
-import Assignment6.domain.Location;
-import Assignment6.factory.LocationFactory;
-import Assignment6.repository.implementation.LocationImp;
+import Assignment6.domain.Demographic.Location;
+import Assignment6.factory.Demographic.LocationFactory;
+import Assignment6.repository.Demographic.Impl.LocationImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.mockito.internal.debugging.LocationImpl;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LocationSerTest {

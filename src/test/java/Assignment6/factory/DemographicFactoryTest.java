@@ -1,12 +1,10 @@
 package Assignment6.factory;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.Demographic;
+import Assignment6.domain.Demographic.Demographic;
+import Assignment6.factory.Demographic.DemographicFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class DemographicFactoryTest {
     private String testName;

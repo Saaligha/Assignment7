@@ -1,7 +1,8 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.Subscription;
-import Assignment6.factory.SubscriptionFactory;
+import Assignment6.domain.Payment.Subscription;
+import Assignment6.factory.Payment.SubscriptionFactory;
+import Assignment6.repository.Payment.Impl.SubscriptionImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

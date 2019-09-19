@@ -1,14 +1,13 @@
 package Assignment6.services;
 
-import Assignment6.domain.DifficultyLevel;
-import Assignment6.factory.DifficultyLevelFactory;
-import Assignment6.repository.implementation.DifficultyImp;
+import Assignment6.domain.Progress.DifficultyLevel;
+import Assignment6.factory.Progress.DifficultyLevelFactory;
+import Assignment6.repository.Progress.Impl.DifficultyImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.xmlunit.diff.Diff;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DifficultyLeverSerTest {

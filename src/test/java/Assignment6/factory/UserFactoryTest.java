@@ -1,11 +1,10 @@
 package Assignment6.factory;
 
-import Assignment6.domain.User;
+import Assignment6.domain.User.User;
+import Assignment6.factory.User.UserFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class UserFactoryTest {
 private String id, name,sName;

@@ -1,12 +1,9 @@
 package Assignment6.controller;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.DifficultyLevel;
-import Assignment6.services.CourseService;
-import Assignment6.services.DifficultyLevelService;
+import Assignment6.domain.Progress.DifficultyLevel;
+import Assignment6.services.Progress.DifficultyLevelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;

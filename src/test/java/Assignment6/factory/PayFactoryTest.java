@@ -1,6 +1,7 @@
 package Assignment6.factory;
 
-import Assignment6.domain.Pay;
+import Assignment6.domain.Payment.Pay;
+import Assignment6.factory.Payment.PayFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

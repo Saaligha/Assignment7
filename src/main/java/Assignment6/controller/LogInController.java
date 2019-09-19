@@ -1,9 +1,7 @@
 package Assignment6.controller;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.LogIn;
-import Assignment6.services.CourseService;
-import Assignment6.services.LogInService;
+import Assignment6.domain.LogIn.LogIn;
+import Assignment6.services.LogIn.LogInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;

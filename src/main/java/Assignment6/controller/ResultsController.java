@@ -1,9 +1,7 @@
 package Assignment6.controller;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.Results;
-import Assignment6.services.CourseService;
-import Assignment6.services.ResultsServices;
+import Assignment6.domain.Results.Results;
+import Assignment6.services.Results.ResultsServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;

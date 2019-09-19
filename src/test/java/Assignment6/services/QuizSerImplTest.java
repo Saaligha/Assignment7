@@ -1,9 +1,8 @@
 package Assignment6.services;
 
-import Assignment6.domain.Course;
-import Assignment6.domain.Quiz;
-import Assignment6.factory.QuizFactory;
-import Assignment6.repository.implementation.QuizImp;
+import Assignment6.domain.Progress.Quiz;
+import Assignment6.factory.Progress.QuizFactory;
+import Assignment6.repository.Progress.Impl.QuizImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;

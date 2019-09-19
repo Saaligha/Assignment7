@@ -1,8 +1,8 @@
 package Assignment6.services;
 
-import Assignment6.domain.Results;
-import Assignment6.factory.ResultsFactory;
-import Assignment6.repository.implementation.ResultsImp;
+import Assignment6.domain.Results.Results;
+import Assignment6.factory.Results.ResultsFactory;
+import Assignment6.repository.Results.Impl.ResultsImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;

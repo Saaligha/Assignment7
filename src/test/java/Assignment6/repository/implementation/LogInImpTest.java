@@ -1,15 +1,11 @@
 package Assignment6.repository.implementation;
 
-import Assignment6.domain.LogIn;
-import Assignment6.factory.LogInFactory;
-import Assignment6.repository.LogInRepo;
+import Assignment6.domain.LogIn.LogIn;
+import Assignment6.factory.LogIn.LogInFactory;
+import Assignment6.repository.LogIn.Impl.LogInImp;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Set;
-
-import static org.junit.Assert.*;
 
 public class LogInImpTest {
     private LogInImp repository;
