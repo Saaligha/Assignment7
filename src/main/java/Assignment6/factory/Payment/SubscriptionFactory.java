@@ -4,7 +4,7 @@ import Assignment6.domain.Payment.Subscription;
 
 public class SubscriptionFactory {
 
-    public static Subscription sub(String type){
+    public static Subscription getSubscription(String type){
         return new Subscription.Builder().subType(type).build();
     }
 }

@@ -5,7 +5,7 @@ import Assignment6.domain.Progress.HoursClocked;
 
 public class HoursClockedFactory {
 
-    public static HoursClocked hours(int hours){
+    public static HoursClocked getHours(int hours){
         return new HoursClocked.Builder().hours(hours).build();
     }
 }
