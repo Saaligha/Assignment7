@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 
         auth.inMemoryAuthentication()
-                .withUser("admin")
+                .withUser("premium user")
                 .password(encoder().encode("premium user"))
                 .roles(PREMIUM_USER)
                 .and()
@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 //site for password
-                .antMatchers(HttpMethod.GET, "/ user/getAll")
+                .antMatchers(HttpMethod.GET, "/user/getAll")
                 .hasRole(PREMIUM_USER)
                 .and()
                 .csrf().disable();
