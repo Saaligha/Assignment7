@@ -4,23 +4,21 @@ import Assignment6.domain.Demographic.Location;
 import Assignment6.repository.Demographic.Impl.LocationImp;
 import Assignment6.repository.Demographic.LocationRepo;
 import Assignment6.services.Demographic.LocationService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("LocationSerImp")
-public class LocationSerImpl implements LocationService {
-   private LocationSerImpl service = null;
+@Service("LocationServiceImp")
+public class LocationServiceImpl implements LocationService {
+   private LocationServiceImpl service = null;
     private LocationRepo repository;
 
-    public LocationSerImpl( ){
+    public LocationServiceImpl( ){
         this.repository = LocationImp.getRepo();
     }
-    public LocationSerImpl getService(){
+    public LocationServiceImpl getService(){
         if (service == null){
-            service = new LocationSerImpl();
+            service = new LocationServiceImpl();
         }
         return service;
     }

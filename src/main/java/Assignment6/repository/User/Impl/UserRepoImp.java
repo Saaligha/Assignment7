@@ -1,6 +1,5 @@
 package Assignment6.repository.User.Impl;
 
-import Assignment6.domain.User.PremiumUser;
 import Assignment6.domain.User.User;
 import Assignment6.repository.User.UserRepo;
 import org.springframework.stereotype.Repository;
@@ -8,18 +7,18 @@ import org.springframework.stereotype.Repository;
 import java.util.HashSet;
 import java.util.Set;
 @Repository("UserInMemory")
-public class UserImp implements UserRepo {
+public class UserRepoImp implements UserRepo {
 
-    private static UserImp repository = null;
+    private static UserRepoImp repository = null;
     private Set<User> users;
 
 
-    private UserImp() {
+    private UserRepoImp() {
         this.users = new HashSet<>();
     }
 
-    public static UserImp getRepository() {
-        if (repository == null) repository = new UserImp();
+    public static UserRepoImp getRepository() {
+        if (repository == null) repository = new UserRepoImp();
         return repository;
     }
 

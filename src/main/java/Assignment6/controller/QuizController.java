@@ -12,36 +12,32 @@ import java.util.Set;
 @RequestMapping("/Quiz")
 public class QuizController {
     @Autowired
-    @Qualifier("/QuizSerImpl")
-    private QuizService service;
+    @Qualifier("QuizServiceImpl")
+    private QuizService quizService;
 
     @PostMapping("/create")
-    @ResponseBody
-    public Quiz create(Quiz q){
-        return service.create(q);
+    public Quiz create(@RequestBody Quiz q){
+        return quizService.create(q);
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public Quiz update(Quiz q){
-        return service.update(q);
+    @PutMapping("/update")
+    public Quiz update(@RequestBody Quiz q){
+        return quizService.update(q);
     }
 
-    @GetMapping("/delete{id}")
-    @ResponseBody
+    @DeleteMapping(path ="/delete{id}")
     public void delete(@PathVariable String id){
-        service.delete(id);}
+        quizService.delete(id);}
 
-    @GetMapping("/read/{id}")
-    @ResponseBody
+    @GetMapping(path="/read/{id}")
     public Quiz read(@PathVariable String id){
-        return service.read(id);
+Quiz q = quizService.read(id);
+return q;
     }
 
     @GetMapping("/read/all")
-    @ResponseBody
     public Set<Quiz> getAll(){
-        return service.getAll();
+        return quizService.getAll();
     }
 
 }

@@ -16,7 +16,7 @@ public class ResultsSerImpl implements ResultsServices {
     private ResultsRepo repository;
     private ResultsSerImpl service = null;
 
-    public ResultsSerImpl( ) {
+    public ResultsSerImpl()  {
         this.repository = ResultsRepositoryImp.getResultsRepository();
     }
     public ResultsSerImpl getService(){

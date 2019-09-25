@@ -12,36 +12,33 @@ import java.util.Set;
 @RequestMapping("/Location")
 public class LocationController {
     @Autowired
-    @Qualifier("LocationSerImpl")
-    private LocationService service;
+    @Qualifier("LocationServiceImp")
+    private LocationService locationService;
 
 
     @PostMapping("/create")
-    @ResponseBody
-    public Location create(Location loc){
-        return service.create(loc);
+    public Location create(@RequestBody Location loc){
+        return locationService.create(loc);
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public Location update(Location loc){
-        return service.update(loc);
+    @PutMapping("/update")
+    public Location update(@RequestBody Location loc){
+        return locationService.update(loc);
     }
 
-    @GetMapping("/delete{id}")
-    @ResponseBody
+    @DeleteMapping(path = "/delete{id}")
     public void delete(@PathVariable String id){
-        service.delete(id);}
+        locationService.delete(id);}
 
-    @GetMapping("/read/{id}")
-    @ResponseBody
+    @GetMapping(path = "/read/{id}")
     public Location read(@PathVariable String id){
-        return service.read(id);
+    Location l = locationService.read(id);
+    return l;
     }
 
-    @GetMapping("/read/all")
+    @GetMapping("/getAll")
     @ResponseBody
     public Set<Location> getAll(){
-        return service.getAll();
+        return locationService.getAll();
     }
 }

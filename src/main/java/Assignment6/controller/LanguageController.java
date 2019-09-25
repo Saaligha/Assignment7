@@ -12,35 +12,31 @@ import java.util.Set;
 @RequestMapping("/Language")
 public class LanguageController {
     @Autowired
-    @Qualifier("LanguageSerImpl")
-    private LanguageService service;
+    @Qualifier("LanguageServiceImp")
+    private LanguageService languageService;
 
     @PostMapping("/create")
-    @ResponseBody
-    public Language create(Language language){
-        return service.create(language);
+    public Language create(@RequestBody Language language){
+        return languageService.create(language);
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public Language update(Language language){
-        return service.update(language);
+    @PutMapping("/update")
+    public Language update(@RequestBody Language language){
+        return languageService.update(language);
     }
 
-    @GetMapping("/delete{id}")
-    @ResponseBody
+    @DeleteMapping(path = "/delete{id}")
     public void delete(@PathVariable String id){
-        service.delete(id);}
+        languageService.delete(id);}
 
-    @GetMapping("/read/{id}")
-    @ResponseBody
+    @GetMapping(path = "/read/{id}")
     public Language read(@PathVariable String id){
-        return service.read(id);
+        Language l = languageService.read(id);
+        return l;
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping("/getAll")
     public Set<Language> getAll(){
-        return service.getAll();
+        return languageService.getAll();
     }
 }

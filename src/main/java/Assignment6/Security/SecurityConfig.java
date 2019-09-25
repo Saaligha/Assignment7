@@ -35,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic()
                 .and()
                 .authorizeRequests()
+                //site for password
                 .antMatchers(HttpMethod.GET, "/ user/getAll")
                 .hasRole(PREMIUM_USER)
                 .and()

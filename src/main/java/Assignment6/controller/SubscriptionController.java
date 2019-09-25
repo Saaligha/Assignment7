@@ -13,35 +13,32 @@ import java.util.Set;
 public class SubscriptionController {
 
     @Autowired
-    @Qualifier("SubscriptionSerImpl")
-    private SubscriptionService service;
+    @Qualifier("SubscriptionServiceImpl")
+    private SubscriptionService subscriptionService;
 
     @PostMapping("/create")
-    @ResponseBody
-    public Subscription create(Subscription s){
-        return service.create(s);
+    public Subscription create(@RequestBody Subscription s){
+        return subscriptionService.create(s);
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public Subscription update(Subscription s){
-        return service.update(s);
+    @PutMapping("/update")
+    public Subscription update(@RequestBody Subscription s){
+        return subscriptionService.update(s);
     }
 
-    @GetMapping("/delete{id}")
-    @ResponseBody
+    @DeleteMapping(path ="/delete{id}")
     public void delete(@PathVariable String id){
-        service.delete(id);}
+        subscriptionService.delete(id);}
 
-    @GetMapping("/read/{id}")
+    @GetMapping(path ="/read/{id}")
     @ResponseBody
     public Subscription read(@PathVariable String id){
-        return service.read(id);
+        return subscriptionService.read(id);
     }
 
     @GetMapping("/read/all")
     @ResponseBody
     public Set<Subscription> getAll(){
-        return service.getAll();
+        return subscriptionService.getAll();
     }
 }

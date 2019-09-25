@@ -14,35 +14,32 @@ public class DifficultyLevelController {
 
 
     @Autowired
-    @Qualifier("DiffficultyLevelSerImpl")
-    private DifficultyLevelService service;
+    @Qualifier("DifficultyLevelServiceImpl")
+    private DifficultyLevelService difficultyLevelService;
 
     @PostMapping("/create")
-    @ResponseBody
-    public DifficultyLevel create(DifficultyLevel difficulty){
-        return service.create(difficulty);
+
+    public DifficultyLevel create(@RequestBody DifficultyLevel difficulty){
+        return difficultyLevelService.create(difficulty);
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public DifficultyLevel update(DifficultyLevel difficulty){
-        return service.update(difficulty);
+    @PutMapping("/update")
+    public DifficultyLevel update(@RequestBody DifficultyLevel difficulty){
+        return difficultyLevelService.update(difficulty);
     }
 
-    @GetMapping("/delete{id}")
-    @ResponseBody
+    @DeleteMapping(path = "/delete{id}")
     public void delete(@PathVariable String id){
-        service.delete(id);}
+        difficultyLevelService.delete(id);}
 
-    @GetMapping("/read/{id}")
-    @ResponseBody
+    @GetMapping(path ="/read/{id}")
     public DifficultyLevel read(@PathVariable String id){
-        return service.read(id);
-    }
+        DifficultyLevel c = difficultyLevelService.read(id);
+        return c;
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    }
+    @GetMapping("/getAll")
     public Set<DifficultyLevel> getAll(){
-        return service.getAll();
+        return difficultyLevelService.getAll();
     }}
 

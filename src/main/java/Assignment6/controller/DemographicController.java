@@ -14,30 +14,27 @@ public class DemographicController {
 
 
     @Autowired
-    @Qualifier("DemographicSerImpl")
+    @Qualifier("DemographicServiceImpl")
     private DemographicService service;
 
     @PostMapping("/create")
-    @ResponseBody
-    public Demographic create(Demographic demo){
+    public Demographic create(@RequestBody Demographic demo){
         return service.create(demo);
     }
-    @PostMapping("/update")
-    @ResponseBody
-    public Demographic update(Demographic demo){
+    @PutMapping("/update")
+    public Demographic update(@RequestBody Demographic demo){
         return service.update(demo);
     }
 
-
-    @GetMapping("/delete{id}")
+    @DeleteMapping(path ="/delete{id}")
     @ResponseBody
     public void delete(@PathVariable String id){
         service.delete(id);}
 
-    @GetMapping("/read/{id}")
-    @ResponseBody
+    @GetMapping(path = "/read/{id}")
     public Demographic read(@PathVariable String id){
-        return service.read(id);
+       Demographic d = service.read(id);
+       return d;
     }
 
     @GetMapping("/read/all")

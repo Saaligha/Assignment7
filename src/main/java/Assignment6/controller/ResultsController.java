@@ -14,36 +14,33 @@ public class ResultsController {
 
 
     @Autowired
-    @Qualifier("ResultsSerImpl")
-    private ResultsServices service;
+    @Qualifier("ResultsServiceImpl")
+    private ResultsServices resultsServices;
 
 
     @PostMapping("/create")
-    @ResponseBody
-    public Results create(Results r){
-        return service.create(r);
+    public Results create(@RequestBody Results r){
+        return resultsServices.create(r);
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public Results update(Results r){
-        return service.update(r);
+    @PutMapping("/update")
+    public Results update(@RequestBody Results r){
+        return resultsServices.update(r);
     }
 
-    @GetMapping("/delete{id}")
-    @ResponseBody
+    @DeleteMapping(path = "/delete{id}")
     public void delete(@PathVariable String id){
-        service.delete(id);}
+        resultsServices.delete(id);}
 
     @GetMapping("/read/{id}")
-    @ResponseBody
     public Results read(@PathVariable String id){
-        return service.read(id);
+        Results r = resultsServices.read(id);
+        return r;
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping("/getAll")
+
     public Set<Results> getAll(){
-        return service.getAll();
+        return resultsServices.getAll();
     }
 }

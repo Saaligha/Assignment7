@@ -1,27 +1,25 @@
 package Assignment6.repository.User.Impl;
 
 import Assignment6.domain.User.PremiumUser;
-import Assignment6.domain.User.User;
 import Assignment6.repository.User.PremiumUserRepo;
-import Assignment6.repository.User.UserRepo;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Repository("PremiumUserInMemory")
-public class PremiumUserImp implements PremiumUserRepo {
+public class PremiumUserRepoImp implements PremiumUserRepo {
 
-    private static PremiumUserImp repository = null;
+    private static PremiumUserRepoImp repository = null;
     private Set<PremiumUser> Pusers;
 
 
-    private PremiumUserImp() {
+    private PremiumUserRepoImp() {
         this.Pusers = new HashSet<>();
     }
 
-    public static PremiumUserImp getRepository() {
-        if (repository == null) repository = new PremiumUserImp();
+    public static PremiumUserRepoImp getRepository() {
+        if (repository == null) repository = new PremiumUserRepoImp();
         return repository;
     }
 

@@ -9,39 +9,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/HoursClocked")
+@RequestMapping("/HoursClockedServiceImpl")
 public class HoursClockedController {
 
     @Autowired
-    @Qualifier("HoursSerImpl")
-    private HoursClockedService service;
+    @Qualifier("HoursClockedServiceImpl")
+    private HoursClockedService hoursClockedService;
 
     @PostMapping("/create")
-    @ResponseBody
-    public HoursClocked create(HoursClocked hours){
-        return service.create(hours);
+    public HoursClocked create(@RequestBody HoursClocked hours){
+        return hoursClockedService.create(hours);
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public HoursClocked update(HoursClocked hours){
-        return service.update(hours);
+    @PutMapping("/update")
+    public HoursClocked update(@RequestBody HoursClocked hours){
+        return hoursClockedService.update(hours);
     }
 
-    @GetMapping("/delete{id}")
+    @DeleteMapping(path = "/delete{id}")
     @ResponseBody
     public void delete(@PathVariable String id){
-        service.delete(id);}
+        hoursClockedService.delete(id);}
 
-    @GetMapping("/read/{id}")
-    @ResponseBody
+    @GetMapping(path = "/read/{id}")
     public HoursClocked read(@PathVariable String id){
-        return service.read(id);
+    HoursClocked h = hoursClockedService.read(id);
+        return h;
     }
 
     @GetMapping("/read/all")
     @ResponseBody
     public Set<HoursClocked> getAll(){
-        return service.getAll();
+        return hoursClockedService.getAll();
     }
 }

@@ -13,35 +13,31 @@ import java.util.Set;
 public class LogInController {
 
     @Autowired
-    @Qualifier("LogInSerImpl")
-    private LogInService service;
+    @Qualifier("LogInServiceImpl")
+    private LogInService logInService;
 
     @PostMapping("/create")
-    @ResponseBody
-    public LogIn create(LogIn log){
-        return service.create(log);
+    public LogIn create(@RequestBody LogIn log){
+        return logInService.create(log);
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public LogIn update(LogIn log){
-        return service.update(log);
+    @PutMapping("/update")
+    public LogIn update(@RequestBody LogIn log){
+        return logInService.update(log);
     }
 
-    @GetMapping("/delete{id}")
-    @ResponseBody
+    @DeleteMapping(path ="/delete{id}")
     public void delete(@PathVariable String id){
-        service.delete(id);}
+        logInService.delete(id);}
 
-    @GetMapping("/read/{id}")
-    @ResponseBody
+    @GetMapping(path ="/read/{id}")
     public LogIn read(@PathVariable String id){
-        return service.read(id);
+     LogIn l = logInService.read(id);
+     return l;
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping("/getAll")
     public Set<LogIn> getAll(){
-        return service.getAll();
+        return logInService.getAll();
     }
 }

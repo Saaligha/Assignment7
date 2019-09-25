@@ -6,9 +6,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Index {
+
+
+    @GetMapping("/premiumuser")
+    @ResponseBody
+    public String premiumUser(){
+        return "welcome premium user";
+    }
+
     @GetMapping("/")
     @ResponseBody
-    public String gethHome(){
-        return "Hello";
+    public String homePage(){
+        return "Home page";
     }
 }

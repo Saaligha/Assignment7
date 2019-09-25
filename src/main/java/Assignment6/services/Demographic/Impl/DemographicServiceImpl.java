@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service("DemographicService")
+@Service("DemographicServiceImpl")
 public class DemographicServiceImpl implements DemographicService {
 
 private DemographicServiceImpl service = null;

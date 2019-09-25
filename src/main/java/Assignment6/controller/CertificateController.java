@@ -13,36 +13,40 @@ import java.util.Set;
 @RequestMapping("/Certificate/")
 public class CertificateController {
     @Autowired
-    @Qualifier("CertificateSerImp")
-    private CertificateService service;
+    @Qualifier("CertificateServiceImpl")
+    private CertificateService CertificateService;
 
-@PostMapping("/create")
-    @ResponseBody
-    public Certificate create(Certificate certificate){
-    return service.create(certificate);
+    public CertificateController(CertificateService service) {
+        this.CertificateService = service;
+    }
+
+    @PostMapping("/create")
+    public Certificate create(@RequestBody Certificate certificate){
+    return CertificateService.create(certificate);
 }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public Certificate update(Certificate certificate){
-        return service.update(certificate);
-    }
-    @GetMapping("/delete{id}")
-    @ResponseBody
-    public void delete(@PathVariable String id){
-        service.delete(id);}
-
-    @GetMapping("/read/{id}")
-    @ResponseBody
+    @GetMapping(path = "/read/{id}")
     public Certificate read(@PathVariable String id){
-        return service.read(id);
+        Certificate c = CertificateService.read(id);
+        return c;
+
     }
+    @PutMapping("/update")
+    public Certificate update(@RequestBody Certificate certificate){
+        return CertificateService.update(certificate);
+    }
+
+
+   @DeleteMapping(path = "/delete/{id}")
+    public void delete(@PathVariable String id){
+        CertificateService.delete(id);}
+
+
 
     @GetMapping("/getAll")
-    @ResponseBody
-    public Set<Certificate> getAll(@RequestHeader HttpHeaders headers){
-        System.out.println(headers.getFirst("Certificate"));
-        return service.getAll();
+    public Set<Certificate> getAll(){
+
+        return CertificateService.getAll();
     }
 
 }
