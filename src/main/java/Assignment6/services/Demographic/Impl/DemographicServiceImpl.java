@@ -2,7 +2,7 @@ package Assignment6.services.Demographic.Impl;
 
 import Assignment6.domain.Demographic.Demographic;
 import Assignment6.repository.Demographic.DemographicRepo;
-import Assignment6.repository.Demographic.Impl.DemographicImp;
+import Assignment6.repository.Demographic.Impl.DemographicRepoImp;
 import Assignment6.services.Demographic.DemographicService;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ public class DemographicServiceImpl implements DemographicService {
 private DemographicServiceImpl service = null;
 private DemographicRepo repository;
 
-public DemographicServiceImpl( ){this.repository = DemographicImp.getDemographicRepo(); }
+public DemographicServiceImpl( ){this.repository = DemographicRepoImp.getDemographicRepo(); }
  public DemographicServiceImpl getService(){
      if (service == null){
          service = new DemographicServiceImpl();

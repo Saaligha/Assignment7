@@ -6,21 +6,21 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 @Repository("DemographicInMemory")
-public class DemographicImp implements DemographicRepo {
+public class DemographicRepoImp implements DemographicRepo {
 
-    private static DemographicImp demographicRepo = null;
+    private static DemographicRepoImp demographicRepo = null;
     private Set<Demographic> demographics;
 
-    public DemographicImp(){
+    public DemographicRepoImp(){
         demographics = new HashSet<>();
     }
 
-    public static DemographicImp getDemographicRepo(){
+    public static DemographicRepoImp getDemographicRepo(){
         if(demographicRepo == null){
             return demographicRepo;
         }
 
-        return (DemographicImp) demographicRepo;
+        return (DemographicRepoImp) demographicRepo;
     }
 
     @Override
