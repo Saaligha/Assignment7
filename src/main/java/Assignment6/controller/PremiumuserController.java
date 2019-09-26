@@ -1,4 +1,4 @@
-/*package Assignment6.controller;
+package Assignment6.controller;/*package Assignment6.controller;
 
 import Assignment6.domain.User.PremiumUser;
 import Assignment6.services.User.PremiumUserService;
