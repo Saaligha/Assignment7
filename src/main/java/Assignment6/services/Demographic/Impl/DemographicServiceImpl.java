@@ -29,8 +29,7 @@ public DemographicServiceImpl( ){this.repository = DemographicRepoImp.getDemogra
 
     @Override
     public Demographic create(Demographic demo) {
-         this.repository.create(demo);
-         return demo;
+        return this.repository.create(demo);
     }
 
     @Override
@@ -47,4 +46,5 @@ public DemographicServiceImpl( ){this.repository = DemographicRepoImp.getDemogra
     public Demographic read(String s) {
         return repository.read(s);
     }
+
 }
