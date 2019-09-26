@@ -11,7 +11,7 @@ import java.util.Set;
 @Service("DemographicServiceImpl")
 public class DemographicServiceImpl implements DemographicService {
 
-private DemographicServiceImpl service = null;
+private DemographicServiceImpl service;
 private DemographicRepo repository;
 
 public DemographicServiceImpl( ){this.repository = DemographicRepoImp.getDemographicRepo(); }
@@ -28,8 +28,9 @@ public DemographicServiceImpl( ){this.repository = DemographicRepoImp.getDemogra
     }
 
     @Override
-    public Demographic create(Demographic type) {
-        return this.repository.create(type);
+    public Demographic create(Demographic demo) {
+         this.repository.create(demo);
+         return demo;
     }
 
     @Override
