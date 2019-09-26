@@ -1,4 +1,4 @@
-package Assignment6.controller;
+/*package Assignment6.controller;
 
 import Assignment6.domain.User.PremiumUser;
 import Assignment6.services.User.PremiumUserService;
@@ -28,6 +28,7 @@ public class PremiumuserController {
         @DeleteMapping(path ="/delete{id}")
         public void delete(@PathVariable String id){
             premiumUserService.delete(id);}
+
         @GetMapping(path = "/read/{id}")
         public PremiumUser read(@PathVariable String id){
             PremiumUser c = premiumUserService.read(id);
@@ -40,3 +41,4 @@ public class PremiumuserController {
         }
 
 
+*/
