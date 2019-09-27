@@ -10,5 +10,6 @@ public class AdminFactoryTest {
     public void getAdminUser(){
         AdminUser adminUser = AdminUserFactory.getUser("1", "Saaligha", "Logday");
         Assert.assertNotNull(adminUser);
+        System.out.println(adminUser);
     }
 }

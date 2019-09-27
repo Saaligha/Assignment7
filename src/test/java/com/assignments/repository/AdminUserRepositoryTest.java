@@ -5,8 +5,10 @@ import com.assignments.domain.AdminUser;
 import com.assignments.factory.AdminUserFactory;
 import com.assignments.repository.impl.AdminUserRepositoryImpl;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -16,6 +18,7 @@ import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AdminUserRepositoryTest {
     @Autowired
     private AdminUserRepositoryImpl adminUserRepository;
@@ -24,19 +27,17 @@ public class AdminUserRepositoryTest {
 
     @Test
     public void a_create() {
-        AdminUser adminUser = AdminUserFactory
-                .getUser("1234", "Sally", "Goal");
 
         adminUserRepository.create(adminUser);
         assertNotNull(adminUserRepository.getAll());
-        System.out.println(adminUserRepository.getAll());
+        System.out.println(adminUserRepository);
 
     }
     @Test
     public void b_read() {
 
         AdminUser fromSet = adminUserRepository.read(adminUser.getUserId());
-        Assert.assertNull(fromSet);
+        Assert.assertNotNull(fromSet);
         System.out.println(adminUserRepository.getAll());
     }
 
