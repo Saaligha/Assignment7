@@ -1,5 +1,6 @@
 package com.assignments.factory;
 
+
 import com.assignments.domain.User;
 import org.junit.Assert;
 import org.junit.Test;

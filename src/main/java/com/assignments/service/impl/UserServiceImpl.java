@@ -3,11 +3,12 @@ package com.assignments.service.impl;
 import com.assignments.domain.User;
 import com.assignments.service.UserService;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Repository("UserServiceImpl")
+@Service("UserServiceImpl")
 public class UserServiceImpl implements UserService {
 
     private static  UserServiceImpl repository = null;
