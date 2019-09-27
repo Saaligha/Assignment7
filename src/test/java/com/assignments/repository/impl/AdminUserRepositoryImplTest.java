@@ -32,7 +32,7 @@ AdminUser admin = AdminUserFactory.getUser("21", "Jonah", "Hill");
     @Test
     public void read() {
         AdminUser fromSet = adminUserRepository.read(admin.getUserId());
-        assertNotNull(fromSet);
+        assertNull(fromSet);
         System.out.println(adminUserRepository.getAll());
     }
 

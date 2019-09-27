@@ -42,7 +42,9 @@ public class AdminUser {
         private String userId,  userName,  userSname;
 
         public Builder() {
-
+            this.userId = userId;
+            this.userName = userName;
+            this.userSname = userSname;
         }
 
         public Builder userId(String userId){
