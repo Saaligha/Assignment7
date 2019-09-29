@@ -1,4 +1,4 @@
-package com.assignments.controller;
+package za.ac.cput.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,7 +10,7 @@ public class IndexController {
     @GetMapping("/")
     @ResponseBody
     public String homePage(){
-        return "Saaligha Logday";
+        return "Welcome to Deklerk Bassons Capstone Project";
     }
 
 }
