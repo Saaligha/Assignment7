@@ -14,6 +14,10 @@
           <option name="url" value="https://github.com/jordanh97/FindMyFriends.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/Saaligha/Domain.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\Admin\IdeaProjects" />

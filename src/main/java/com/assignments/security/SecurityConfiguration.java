@@ -1,4 +1,4 @@
-package com.assignments.security;
+package za.ac.cput.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,8 +35,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,  "/user/getall")
-                .hasAnyRole(ADMIN_ROLE, USER_ROLE)
+                .antMatchers(HttpMethod.GET, "/administrator/getall")
+                .hasRole(ADMIN_ROLE)
                 .and()
                 .csrf().disable();
 
